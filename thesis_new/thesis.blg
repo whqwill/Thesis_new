@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: thesis.aux
+A level-1 auxiliary file: title.aux
+A level-1 auxiliary file: acknowledgements.aux
+A level-1 auxiliary file: abstract.aux
+The style file: apalike.bst
+Database file #1: thesis.bib
+Warning--I didn't find a database entry for "neelakantan2015efficient"
+You've used 21 entries,
+            1935 wiz_defined-function locations,
+            624 strings with 8227 characters,
+and the built_in function-call counts, 9868 in all, are:
+= -- 973
+> -- 445
+< -- 16
++ -- 166
+- -- 154
+* -- 814
+:= -- 1640
+add.period$ -- 67
+call.type$ -- 21
+change.case$ -- 181
+chr.to.int$ -- 21
+cite$ -- 21
+duplicate$ -- 393
+empty$ -- 669
+format.name$ -- 183
+if$ -- 1988
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 21
+newline$ -- 107
+num.names$ -- 63
+pop$ -- 192
+preamble$ -- 1
+purify$ -- 182
+quote$ -- 0
+skip$ -- 298
+stack$ -- 0
+substring$ -- 677
+swap$ -- 91
+text.length$ -- 9
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 124
+warning$ -- 0
+while$ -- 75
+width$ -- 0
+write$ -- 275
+(There was 1 warning)

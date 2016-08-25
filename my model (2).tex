@@ -1,0 +1,417 @@
+\documentclass[12pt,a4paper,twoside]{book}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%
+% In general useful packages
+%%%%%%
+\usepackage[latin1]{inputenc} % allow Umlauts
+\usepackage[T1]{fontenc} % Umlauts as character in font
+\usepackage{fancyhdr}   % Header/Footer
+\usepackage[pdftex]{graphicx}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+
+%%%%%%
+% The following packages are optional, uncomment them if useful and required
+%%%%%%
+\usepackage{fancyvrb}   % extended verbatim environment
+% \usepackage{latexsym}   % additional symbols
+% \usepackage{times}      % bessere Schrift in PS-Dateien
+% \usepackage{longtable}  % long tables (with page breaks)
+% \usepackage{breakcites}  % linebreaks in cites
+
+\usepackage[us]{datetime} % date in \today as "Month DD, YYYY", e.g., "February 29, 2012"
+
+
+%%%%%%
+% Hyperlinks in PDF output (blue borders, text color unchanged)
+%%%%%%
+\usepackage[plainpages=false, pdfpagelabels, bookmarks,  colorlinks=false,
+               linkbordercolor={0 0 1}, filebordercolor={0 0 1}, citebordercolor={0 0 1},
+               menubordercolor={0 0 1}, urlbordercolor={0 0 1}]{hyperref}
+
+%%%%%%
+% Another set of useful packages
+%%%%%%
+% \usepackage[square]{natbib}  % more powerful and customizable references
+% \usepackage[center]{caption} % centered, multi-line captions of figures and tables
+% \usepackage{floatflt}        % floats (e.g., figures & tables) which can have floating text around them
+% \usepackage[thmmarks]{ntheorem}    % extended theorem environment
+\usepackage{pdfcomment}  % comments in text as PDF notes
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Layout %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% German style (no paragraph indent, but gap between paragraphs)
+ \setlength{\parindent}{0mm}
+% \setlength{\parskip}{4pt plus3pt minus2pt}
+
+% Page width and margins (usually no need to change, just use a4wide package)
+% \setlength{\textwidth}{15cm}
+% \addtolength{\oddsidemargin}{1mm}
+% \addtolength{\evensidemargin}{-13.5mm}
+\usepackage{a4wide} % better than individual setup
+
+% For fancyhdr, otherwise it might result in "overfull vbox"
+\addtolength{\headheight}{3.5pt}
+
+% URL Prefix for Bibliography (i.e., no prefix, typewriter as font for URLs)
+\newcommand{\urlprefix}{}
+\def\UrlFont{\small\tt}
+%\urlstyle{rm} % oder sf, falls obiges nicht funktioniert
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Some useful macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% myfigure: filename width caption
+\newcommand{\myfigure}[3]{%
+  \begin{figure}
+    \centerline{\includegraphics[width=#2]{figures/#1.pdf}}
+  \caption{#3}
+  \label{fig:#1}
+  \end{figure}
+}
+
+% Floating figures = figures with floating text around: filename width caption
+\newcommand{\myfloatfigure}[3]{%
+  \begin{floatingfigure}{#2}
+    \includegraphics[width=#2]{figures/#1.pdf}
+  \caption{#3}
+  \label{fig:#1}
+  \end{floatingfigure}
+}
+
+% two figures side by side: file1 width1 caption1 file2 width2 caption2
+\newcommand{\mydoublefigure}[6]{%
+  \begin{figure}
+  \begin{minipage}[t]{#2}
+    \centerline{\includegraphics[width=\textwidth]{figures/#1.pdf}}
+  \centering
+  \caption{#3}
+  \label{fig:#1}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{#5}
+    \centerline{\includegraphics[width=\textwidth]{figures/#4.pdf}}
+  \centering
+  \caption{#6}
+  \label{fig:#4}
+  \end{minipage}
+  \end{figure}
+}
+
+
+% Better verbatim environments (requires fancyvrb package)
+\DefineVerbatimEnvironment{myverb}{Verbatim}{fontsize=\small,baselinestretch=0.84}
+\DefineVerbatimEnvironment{myverbbox}{Verbatim}{frame=single,fontsize=\small,baselinestretch=0.84}
+
+
+% For figures and tables
+\renewcommand{\topfraction}{0.9} % a page has at most 90% of floats and at least 10% of text (if page contains floats AND text)
+\renewcommand{\bottomfraction}{0.9}
+\renewcommand{\floatpagefraction}{0.7} % a page with floats only is at least 70% full
+
+% Hyphenation (include a special file with hyphenation hints if there are problems)
+% \include{myhyphen}
+
+
+
+\begin{document}
+
+\setlength{\parindent}{2em}
+
+\iffalse
+% Title page
+\begingroup
+  \pagenumbering{roman}
+  \include{title}
+
+\newpage
+
+\thispagestyle{empty}
+
+\rule{0cm}{5cm}
+
+\newpage
+
+\thispagestyle{empty}
+
+\include{declaration}
+
+%%% Include abstract and acknowledgements as necessary
+\include{acknowledgements}
+\include{abstract}
+
+\newpage
+
+\endgroup
+
+%%%%%%%%%%%%%%%%%%%
+% Header & footers
+%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{fancy}
+
+% Headers with page numbers and section/chapter titles
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter\ #1}{}}
+\lhead[\rm\thepage]{\sl\rightmark}
+\chead{}
+\rhead[\sl\leftmark]{\rm\thepage}
+
+% Footers empty
+\lfoot{}
+\cfoot{}
+\rfoot{}
+
+
+\tableofcontents
+
+% Include also list of figures and tables if useful
+%\listoffigures
+%\listoftables
+
+\fi
+
+%%%%%%%%%%%%%%%%%%%%
+%%% Contents %%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+% Put each chapter in a separate file
+
+
+%\input{intro}
+
+%\input{relwork}
+
+%\input{solution}
+
+%\input{impl}
+
+%\input{eval}
+
+%\input{concl}
+
+%%% Use appendix if necessary
+% \begin{appendix}
+% \input{appendix}
+% \end{appendix}
+
+% References
+%\input{biblio}
+
+\section{Skipgram-model with negative sampling}
+\subsection{Introduction}
+
+Negative sample words are sampled according to a smoothed unigram distribution.
+\subsection{Definition}
+\ \ \ \ \ \ Corpus $C$: $(S_1,S_2,\ldots,S_M)$
+
+$M$: the total number of sentences\\
+
+$S_i$: the $i$th sentence,\ \ $S_i = (w_{i,1},w_{i,2},\ldots,w_{i,L_i})$
+
+$L_i$: the length of sentence $S_i$
+
+$w_{i,j}$: the word in the position $j$ of sentence $S_i$\\
+
+$V$: lookup table of sense input embedding 
+
+$U$: lookup table of  sense output embedding 
+
+$V_w$: the input embedding of $w$, $w\in D$, $V_w \in \mathbb{R}^d$
+
+$U_w$: the output embedding of $w$, $w\in D$, $U_w \in \mathbb{R}^d$
+
+$D$: Vocabulary 
+
+$d$: the size of embedding vector (both input and output)\\
+
+$K$: the number of negative samples\\
+
+$R()$: a random number (real) from 0.0 to 1.0\\
+
+$c$: the size of context\\
+
+$P_n(w)$: smoothed unigram distribution ,\ \ $P_n(w) = \frac{count(w)^{\frac{3}{4}}}{(\sum_{i=1}^M L_i)^{\frac{3}{4}}}$, \ \ $w\in D$
+
+$count(w)$: the number of times $w$ occurred in $C$
+
+$\sum_{i=1}^M L_i$: the number of total words in $C$
+\subsection{Objective Function}
+\begin{equation}
+\begin{split}
+G = \frac{1}{M}\sum_{i=1}^M\frac{1}{L_i}\sum_{t=1}^{L_i}\sum\limits_{\mbox{\tiny$\begin{array}{c}-c\leq j \leq c\\ j\neq 0\\ 1\leq j+t\leq L_i\end{array}$}}\Big \{\mathrm{log}\ p(w_{i,j+t}|w_{i,t}) 
++\sum\limits_{k=1}^K\mathbb{E}_{w_k\sim P_n(w)}\mathrm{log}\ [1-p(w_k|w_{i,t}) ] \Big \}
+\end{split}
+\end{equation} 
+
+where $p(w^\prime|w) = \sigma({U_{w^\prime}}^{\mathrm{T}}V_w)$
+ and $\sigma(x) = \frac{1}{1+\mathrm{e}^{-x}}$. \\
+ 
+ $p(w_{i,j+t}|w_{i,t})$ is the probability of using center word $w_{i,t}$ to predict one surrounding word $w_{i,j+t}$, which needs to be \textbf{maximized}.
+And $p(w_k|w_{i,t})$ is the probability of using center word $w_{i,t}$ to predict one negative sample word $w_k$, which needs to be \textbf{minimized}.  \\
+
+\section{Sense Assignment based on SGNS}
+\subsection{Introduction}
+\ \ \ \ \ \ Corpus is made up by $M$ sentences, and each sentence is made up by several words. Each word in each sentence has one or multiple senses. In the beginning, in each word of each sentence, senses are assigned \textbf{randomly}. Every sense have both input embedding and output embedding.\\
+
+The training algorithm is an iterating between \textbf{Assign} and \textbf{Learn}. The \textbf{Assign} is to use the \textbf{score function} (sum of log probability) to select the best sense of the center word. And it uses above process to adjust senses of whole sentence and repeats that until sense assignment of the sentence is stable (not changed). The \textbf{Learn} is to use the new sense assignment of each sentence and the gradient of the \textbf{loss function} to update the input embedding and output embedding of each sense (using stochastic gradient decent). 
+\subsection{Definition}
+
+\ \ \ \ \ \ Corpus $C$: $(S_1,S_2,\ldots,S_M)$
+
+$M$: the total number of sentences\\
+
+$S_i$: the $i$th sentence \ , \ $S_i = (w_{i,1},w_{i,2},\ldots,w_{i,L_i})$
+
+$L_i$: the length of sentence $S_i$\\
+
+$w_{i,j}$: the word in the position $j$ of sentence $S_i$\\
+
+$h$: lookup table of sense assignment
+
+$h_{i,j}$: the sense index of word $w_{i,j}$, \ $1\leq h_{i,j}\leq N_{w_{i,j}}$
+
+$N_w$: the max number of senses of word $w$, \ $w\in D$\\
+
+$V$: lookup table of sense input embedding 
+
+$U$: lookup table of  sense output embedding 
+
+$V_{w,s}$: the input embedding of sense $s$ of word $w$, $w\in D$, $1\leq s\leq N_w$, $V_{w,s} \in \mathbb{R}^d$
+
+$U_{w,s}$: the output embedding of sense $s$ of word $w$, $w\in D$, $1\leq s\leq N_w$, $U_{w,s} \in \mathbb{R}^d$\\
+
+$D$: Vocabulary 
+
+$d$: the size of embedding vector (both input and output)\\
+
+$K$: the number of negative samples\\
+
+$R(x)$: a random number (integer) from 1 to $x$
+
+$R()$: a random number (real) from 0.0 to 1.0\\
+
+$c$: the size of context\\
+
+$P_n(w)$: smoothed unigram distribution ,\ \ $P_n(w) = \frac{count(w)^{\frac{3}{4}}}{(\sum_{i=1}^M L_i)^{\frac{3}{4}}}$, \ \ $w\in D$
+
+$count(w)$: the number of times $w$ occurred in $C$
+
+$\sum_{i=1}^M L_i$: the number of total words in $C$
+
+\subsection{Objective Function}
+\begin{equation}
+\begin{split}
+G = \frac{1}{M}\sum_{i=1}^M\frac{1}{L_i}\sum_{t=1}^{L_i}\sum\limits_{\mbox{\tiny$\begin{array}{c}-c\leq j \leq c\\ j\neq 0\\ 1\leq j+t\leq L_i\end{array}$}}\Bigg (\mathrm{log}\ p\Big [(w_{i,j+t},h_{i,j+t})|(w_{i,t},h_{i,t})\Big ] \\
++\sum\limits_{k=1}^K\mathbb{E}_{w_k\sim P_n(w)}\mathrm{log}\ \Big \{1-p\Big[[w_k,R(N_{w_k})]|(w_{i,t},h_{i,t})\Big ] \Big \} \Bigg )
+\end{split}
+\end{equation} 
+
+where $p\Big[(w^\prime,s^\prime)|(w,s)\Big] = \sigma({U_{w^\prime,s^\prime}}^{\mathrm{T}}V_{w,s})$
+ and $\sigma(x) = \frac{1}{1+\mathrm{e}^{-x}}$. \\
+ 
+ $p\Big [(w_{i,j+t},h_{i,j+t})|(w_{i,t},h_{i,t})\Big ]$ is the probability of using center word $w_{i,t}$ with sense $h_{i,t}$ to predict one surrounding word $w_{i,j+t}$ with sense $h_{i,t+j}$, which needs to be \textbf{maximized}.
+And $p\Big[[w_k,R(N_{w_k})]|(w_{i,t},h_{i,t})\Big ]$ is the probability of using center word $w_{i,t}$ with sense $h_{i,t}$ to predict one negative sample word $w_k$ with a \textbf{random sense} $R(N_{w_k})$, which needs to be \textbf{minimized}. 
+It is noteworthy that, $h_{i,t}$  ($w_{i,t}$'s sense) and $h_{i,t+j}$ ($w_{i,t+j}$'s sense) are assigned advance and $h_{i,t}$ may be changed in the \textbf{Assign}. But $w_k$'s sense (negative sample) is always assigned randomly. \\
+
+The final objective is to find out optimized parameters $\theta = \{h,U,V\}$ to maximize the Objective Function $G$, where $h$ is updated in the \textbf{Assign} and $\{U,V\}$ is updated in the \textbf{Learn}.\\
+
+When the center word $w_{i,t}$ is giving, we use \textbf{score function} $f_{i,t}$
+$$f_{i,t}(s) = \sum\limits_{\mbox{\tiny$\begin{array}{c}-c\leq j \leq c\\ j\neq 0\\ 1\leq t+j\leq L_i\end{array}$}}\Bigg (\mathrm{log}\ p\Big [(w_{i,t+j},h_{i,t+j})|(w_{i,t},s)\Big ]$$
+$$+\sum\limits_{k=1}^K\mathbb{E}_{w_k\sim P_n(w)}\mathrm{log}\ \Big \{1-p\Big[[w_k,R(N_{w_k})]|(w_{i,t},s)\Big ] \Big \} \Bigg )$$
+to select the "best" sense of each center word in the \textbf{Assign}. To be noted that, for each score function $f_{i,t}$, all negative samples maintain same as long as generated. So different score is only based on different sense (input value).\\
+
+And taking $\big ( (w_{i,t},h_{i,t}),(w_{i,t+j},h_{i,t+j}),\big [(w_1,s_1),\ldots,(w_K,s_K)\big ]\big )$ as a training sample (assuming the negative samples and relative senses are generated already), we use \textbf{loss function} $loss$ for each sample 
+$$loss\bigg ( (w_{i,t},h_{i,t}),(w_{i,t+j},h_{i,t+j}),\big [(w_1,s_1),\ldots,(w_K,s_K)\big ]\bigg )$$
+$$ = -\mathrm{log}\ p\Big [(w_{i,t+j},h_{i,t+j})|(w_{i,t},h_{i,t})\Big ]-\sum\limits_{k=1}^K\mathrm{log}\ \Big \{1-p\Big[[w_k,s_k]|(w_{i,t},h_{i,t})\Big ] \Big \}$$
+to calculate the gradient and update embeddings (including embeddings of negative samples) in the \textbf{Learn}. Here the loss is defined as the negative log probability. \\
+
+The relative gradients calculation is
+$$\Delta_{V_{w_{i,t},h_{i,t}}} = -\frac{\partial loss\bigg ( (w_{i,t},h_{i,t}),(w_{i,t+j},h_{i,t+j}),\big [(w_1,s_1),\ldots,(w_K,s_K)\big ]\bigg )}{\partial V_{w_{i,t},h_{i,t}}} $$
+$$= [1-\mathrm{log}\ \sigma({U_{w_{i,t+j},h_{i,t+j}}}^{\mathrm{T}}V_{w_{i,t},h_{i,t}})]
+U_{w_{i,t+j},h_{i,t+j}}+\sum_{k=1}^K [-\mathrm{log}\ \sigma({U_{w_k,s_k}}^{\mathrm{T}}V_{w_{i,t},h_{i,t}}))]U_{w_k,s_k}$$
+
+$$\Delta_{U_{w_{i,t+j},h_{i,t+j}}} = -\frac{\partial loss\bigg ( (w_{i,t},h_{i,t}),(w_{i,t+j},h_{i,t+j}),\big [(w_1,s_1),\ldots,(w_K,s_K)\big ]\bigg )}{\partial U_{w_{i,t+j},h_{i,t+j}}}$$
+$$=[1-\mathrm{log}\ \sigma({U_{w_{i,t+j},h_{i,t+j}}}^{\mathrm{T}}V_{w_{i,t},h_{i,t}})]
+V_{w_{i,t},h_{i,t}}$$
+
+$$\Delta_{U_{w_k,s_k}} = -\frac{\partial loss\bigg ( (w_{i,t},h_{i,t}),(w_{i,t+j},h_{i,t+j}),\big [(w_1,s_1),\ldots,(w_K,s_K)\big ]\bigg )}{\partial U_{w_k,s_k}}$$
+$$=[-\mathrm{log}\ \sigma({U_{w_k,s_k}}^{\mathrm{T}}V_{w_{i,t},h_{i,t}}))]V_{w_{i,t},h_{i,t}}$$
+
+\subsection{Algorithm Description}
+\paragraph{} \textbf{Initialization}: \\
+
+$h_{i,j} = R(N_{w_{i,j}}),  \ 1\leq i \leq M,  \ 1\leq j\leq L_i$
+
+$V_{w,s} = \Big[\underbrace{\frac{R()-0.5}{d},\ldots,\frac{R()-0.5}{d}}_{d}\Big]^{\mathrm{T}}, \ w\in D, \  1\leq s\leq N_w$
+
+$U_{w,s} = \Big[\underbrace{0,\ldots,0}_{d}\Big]^{\mathrm{T}},  \ w\in D, \  1\leq s\leq N_w$
+\paragraph{} \textbf{Assign}:\\
+
+FOR $i$:= 1 TO $M$
+
+\ \ \ \ DO
+
+\ \ \ \ \ \ \ \ FOR $t$:= 1 TO $L_i$
+
+\ \ \ \ \ \ \ \ \ \ \ \ $h_{i,t} = \max\limits_{1\leq s\leq N_{w_{i,t}}} f_{i,t}(s)$
+
+\ \ \ \ \ \ \ \ END
+
+\ \ \ \ UNTIL no $h_{i,t}$ changed
+
+END
+\paragraph{} \textbf{Learn}:\\
+
+FOR $i$:= 1 TO $M$
+
+\ \ \ \ FOR $t$:= 1 TO $L_i$
+
+\ \ \ \ \ \ \ \ FOR $j$:= $-c$ TO $c$
+
+\ \ \ \ \ \ \ \ \ \ \ \ IF $j\neq 0$ AND $t+j\geq1$ AND $t+j\leq L_i$ THEN
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ generate negative samples $\big [(w_1,s_1),\ldots,(w_K,s_K)\big ]$
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\Delta = -\nabla_\theta loss\bigg ( (w_{i,t},h_{i,t}),(w_{i,t+j},h_{i,t+j}),\big [(w_1,s_1),\ldots,(w_K,s_K)\big ]\bigg )$
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\Delta$ is made up by $ \{\Delta_{V_{w_{i,t},h_{i,t}}}, \Delta_{U_{w_{i,t+j},h_{i,t+j}}}, [\Delta_{U_{w_1,w_1}},\ldots,\Delta_{U_{w_K,w_K}}]\}$
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $V_{w_{i,t},h_{i,t}} = V_{w_{i,t},h_{i,t}} + \alpha \Delta_{V_{w_{i,t},h_{i,t}}}$
+ 
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $U_{w_{i,t+j},h_{i,t+j}} = U_{w_{i,t+j},h_{i,t+j}} + \alpha \Delta_{U_{w_{i,t+j},h_{i,t+j}}}$ 
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FOR $k$:= 1 TO $K$
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $U_{w_k,s_k} = U_{w_k,s_k} + \alpha \Delta_{U_{w_k,s_k}}$ 
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ END
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+ 
+\ \ \ \ \ \ \ \ \ \ \ \ END 
+
+\ \ \ \ \ \ \ \  END
+
+\ \ \ \ END
+
+END
+
+\paragraph{}
+Iterating between \textbf{Assign} and \textbf{Learn} till the convergence of the value of $G$ makes the whole algorithm complete. 
+
+
+\end{document}
+
+

@@ -1,0 +1,309 @@
+\documentclass[12pt,a4paper,twoside]{book}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%
+% In general useful packages
+%%%%%%
+\usepackage[latin1]{inputenc} % allow Umlauts
+\usepackage[T1]{fontenc} % Umlauts as character in font
+\usepackage{fancyhdr}   % Header/Footer
+\usepackage[pdftex]{graphicx}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+
+%%%%%%
+% The following packages are optional, uncomment them if useful and required
+%%%%%%
+\usepackage{fancyvrb}   % extended verbatim environment
+% \usepackage{latexsym}   % additional symbols
+% \usepackage{times}      % bessere Schrift in PS-Dateien
+% \usepackage{longtable}  % long tables (with page breaks)
+% \usepackage{breakcites}  % linebreaks in cites
+
+\usepackage[us]{datetime} % date in \today as "Month DD, YYYY", e.g., "February 29, 2012"
+
+
+%%%%%%
+% Hyperlinks in PDF output (blue borders, text color unchanged)
+%%%%%%
+\usepackage[plainpages=false, pdfpagelabels, bookmarks,  colorlinks=false,
+               linkbordercolor={0 0 1}, filebordercolor={0 0 1}, citebordercolor={0 0 1},
+               menubordercolor={0 0 1}, urlbordercolor={0 0 1}]{hyperref}
+
+%%%%%%
+% Another set of useful packages
+%%%%%%
+% \usepackage[square]{natbib}  % more powerful and customizable references
+% \usepackage[center]{caption} % centered, multi-line captions of figures and tables
+% \usepackage{floatflt}        % floats (e.g., figures & tables) which can have floating text around them
+% \usepackage[thmmarks]{ntheorem}    % extended theorem environment
+\usepackage{pdfcomment}  % comments in text as PDF notes
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Layout %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% German style (no paragraph indent, but gap between paragraphs)
+ \setlength{\parindent}{0mm}
+% \setlength{\parskip}{4pt plus3pt minus2pt}
+
+% Page width and margins (usually no need to change, just use a4wide package)
+% \setlength{\textwidth}{15cm}
+% \addtolength{\oddsidemargin}{1mm}
+% \addtolength{\evensidemargin}{-13.5mm}
+\usepackage{a4wide} % better than individual setup
+
+% For fancyhdr, otherwise it might result in "overfull vbox"
+\addtolength{\headheight}{3.5pt}
+
+% URL Prefix for Bibliography (i.e., no prefix, typewriter as font for URLs)
+\newcommand{\urlprefix}{}
+\def\UrlFont{\small\tt}
+%\urlstyle{rm} % oder sf, falls obiges nicht funktioniert
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Some useful macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% myfigure: filename width caption
+\newcommand{\myfigure}[3]{%
+  \begin{figure}
+    \centerline{\includegraphics[width=#2]{figures/#1.pdf}}
+  \caption{#3}
+  \label{fig:#1}
+  \end{figure}
+}
+
+% Floating figures = figures with floating text around: filename width caption
+\newcommand{\myfloatfigure}[3]{%
+  \begin{floatingfigure}{#2}
+    \includegraphics[width=#2]{figures/#1.pdf}
+  \caption{#3}
+  \label{fig:#1}
+  \end{floatingfigure}
+}
+
+% two figures side by side: file1 width1 caption1 file2 width2 caption2
+\newcommand{\mydoublefigure}[6]{%
+  \begin{figure}
+  \begin{minipage}[t]{#2}
+    \centerline{\includegraphics[width=\textwidth]{figures/#1.pdf}}
+  \centering
+  \caption{#3}
+  \label{fig:#1}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{#5}
+    \centerline{\includegraphics[width=\textwidth]{figures/#4.pdf}}
+  \centering
+  \caption{#6}
+  \label{fig:#4}
+  \end{minipage}
+  \end{figure}
+}
+
+
+% Better verbatim environments (requires fancyvrb package)
+\DefineVerbatimEnvironment{myverb}{Verbatim}{fontsize=\small,baselinestretch=0.84}
+\DefineVerbatimEnvironment{myverbbox}{Verbatim}{frame=single,fontsize=\small,baselinestretch=0.84}
+
+
+% For figures and tables
+\renewcommand{\topfraction}{0.9} % a page has at most 90% of floats and at least 10% of text (if page contains floats AND text)
+\renewcommand{\bottomfraction}{0.9}
+\renewcommand{\floatpagefraction}{0.7} % a page with floats only is at least 70% full
+
+% Hyphenation (include a special file with hyphenation hints if there are problems)
+% \include{myhyphen}
+
+
+
+\begin{document}
+
+\setlength{\parindent}{2em}
+
+\iffalse
+% Title page
+\begingroup
+  \pagenumbering{roman}
+  \include{title}
+
+\newpage
+
+\thispagestyle{empty}
+
+\rule{0cm}{5cm}
+
+\newpage
+
+\thispagestyle{empty}
+
+\include{declaration}
+
+%%% Include abstract and acknowledgements as necessary
+\include{acknowledgements}
+\include{abstract}
+
+\newpage
+
+\endgroup
+
+%%%%%%%%%%%%%%%%%%%
+% Header & footers
+%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{fancy}
+
+% Headers with page numbers and section/chapter titles
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter\ #1}{}}
+\lhead[\rm\thepage]{\sl\rightmark}
+\chead{}
+\rhead[\sl\leftmark]{\rm\thepage}
+
+% Footers empty
+\lfoot{}
+\cfoot{}
+\rfoot{}
+
+
+\tableofcontents
+
+% Include also list of figures and tables if useful
+%\listoffigures
+%\listoftables
+
+\fi
+
+%%%%%%%%%%%%%%%%%%%%
+%%% Contents %%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+% Put each chapter in a separate file
+
+
+%\input{intro}
+
+%\input{relwork}
+
+%\input{solution}
+
+%\input{impl}
+
+%\input{eval}
+
+%\input{concl}
+
+%%% Use appendix if necessary
+% \begin{appendix}
+% \input{appendix}
+% \end{appendix}
+
+% References
+%\input{biblio}
+\section{Paper}
+
+	Formula (1) is the the Skip-gram objective function (log probability): 
+	$$\frac{1}{T} \sum_{t=1}^{T} \sum_{-c\leq j\leq c, j\neq 0} \mathrm{log}\ p(w_{t+j}|w_{t}) $$
+	$T$ is the total number of words (size of corpus), $c$ is the size of the training context (window size), $w_t$ is the center word, $w_{t+j}$ is the target word (from context).  \\
+\\
+	Each $(w_I, w_O)$ is a data sample (center word and target word). \\
+\\
+	Formula (2) is using softmax function to represent $p(w_O|w_I)$:
+	$$p(w_O|w_I) = \frac{\mathrm{exp}({v^\prime_{w_O}}^{\mathrm{T}}v_{w_I})}{\sum_{w=1}^{W}\mathrm{exp}({v^\prime_{w}}^{\mathrm{T}}v_{w_I})}$$
+	$v_w$ and $v^\prime_w$ are the \lq\lq input\rq\rq\ and \lq\lq output\rq\rq\ embeddings of $w$, and $W$ is the number of words in the vocabulary.\\
+\\
+	So the final objective function is $$\frac{1}{T} \sum_{t=1}^{T} \sum_{-c\leq j\leq c, j\neq 0} \mathrm{log}\ \frac{\mathrm{exp}({v^\prime_{w_{t+j}}}^{\mathrm{T}}v_{w_t})}{\sum_{w=1}^{W}\mathrm{exp}({v^\prime_{w}}^{\mathrm{T}}v_{w_t})} $$
+\\
+\\
+	Formula (3) is about hierarchical softmax function.\\
+	\\
+	Formula (4) is using the negative sampling to replace every $\mathrm{log}\ p(w_O|w_I)$ term in the original objective function: 
+	$$\mathrm{log}\ p(w_O|w_I) = \mathrm{log}\ \sigma({v^\prime_{w_O}}^{\mathrm{T}}v_{w_I})+\sum_{i=1}^k \mathbb{E}_{w_i\thicksim P_n(w)}[\mathrm{log}\ \sigma(-{v^\prime_{w_i}}^{\mathrm{T}}v_{w_I})]$$	
+	$P_n(w)$ is the noise distribution using logistic regression, where there are $k$ negative samples for each data sample.\\
+\\
+	So the final objective function is $$\frac{1}{T} \sum_{t=1}^{T} \sum_{-c\leq j\leq c, j\neq 0} \mathrm{log}\ \sigma({v^\prime_{w_{t+j}}}^{\mathrm{T}}v_{w_t})+\sum_{i=1}^k \mathbb{E}_{w_i\thicksim P_n(w)}[\mathrm{log}\ \sigma(-{v^\prime_{w_i}}^{\mathrm{T}}v_{w_t})]$$ 
+	\\
+	  \\  
+	So I use the negative log probability from formula (4) as loss function of each data sample:
+	$$L(w_I,w_O)=-\mathrm{log}\ \sigma({v^\prime_{w_O}}^{\mathrm{T}}v_{w_I})-\sum_{i=1}^k \mathbb{E}_{w_i\thicksim P_n(w)}[\mathrm{log}\ \sigma(-{v^\prime_{w_i}}^{\mathrm{T}}v_{w_I})]$$
+	And the loss function of whole dataset is $$L=\frac{1}{T} \sum_{t=1}^{T} \sum_{-c\leq j\leq c, j\neq 0} L(w_t,w_{t+j})$$
+	Maximize the objective function is equivalently to minimize the loss function. So the objective of learning algorithm is 
+	$$\arg\min_\theta \frac{1}{T} \sum_{t=1}^{T} \sum_{-c\leq j\leq c, j\neq 0} L(w_t,w_{t+j})$$
+	where $\theta = \{v,v^\prime\}$ (the input and output embeddings)\\
+	\\
+	Using stochastic gradient descent: 
+	\begin{itemize}
+	\item Initialize $\theta=\{v,v^\prime\}$
+	\item For N Iterations:
+		\begin{itemize}
+		\item For each training sample $(w_I,w_O)$
+		\begin{itemize}
+		\item $\Delta = -\nabla_\theta L(w_I,w_O)$ (the gradient) 
+		\item $\theta = \theta + \alpha\Delta$ ($\alpha$ is the learning rate)
+		\end{itemize}
+		\end{itemize}
+	\end{itemize}
+The partial derivative of $L(w_I,w_O)$ is
+	$$\Delta_{v_{w_I}} = -\frac{\partial L(w_I,w_O)}{\partial v_{w_I}} = [1-\mathrm{log}\ \sigma({v^\prime_{w_O}}^{\mathrm{T}}v_{w_I})]v^\prime_{w_O}+\sum_{i=1}^k \mathbb{E}_{w_i\thicksim P_n(w)}[-\mathrm{log}\ \sigma({v^\prime_{w_i}}^{\mathrm{T}}v_{w_I}))]v^\prime_{w_i}$$
+	$$\Delta_{v^\prime_{w_O}} = -\frac{\partial L(w_I,w_O)}{\partial v^\prime_{w_O}} = [1-\mathrm{log}\  \sigma({v^\prime_{w_O}}^{\mathrm{T}}v_{w_I})]v_{w_I}$$
+	$$\Delta_{v^\prime_{w_i}} = -\frac{\partial L(w_I,w_O)}{\partial v^\prime_{w_i}} = [-\mathrm{log}\  \sigma({v^\prime_{w_i}}^{\mathrm{T}}v_{w_I})]v_{w_I}$$
+Updating $\theta = \{v,v^\prime\} $:
+    $$v_{w_I} = v_{w_I} + \alpha \Delta_{v_{w_I}}$$ 
+	$$v^\prime_{w_O} = v^\prime_{w_O} + \alpha \Delta_{v^\prime_{w_O}}$$ 
+	$$v^\prime_{w_i} = v^\prime_{w_i} + \alpha \Delta_{v^\prime_{w_i}}$$ 
+
+\section{Code}
+
+The paper's objective function is:
+ $$\frac{1}{T} \sum_{t=1}^{T} \sum_{-c\leq j\leq c, j\neq 0} \mathrm{log}\ \sigma({v^\prime_{w_{t+j}}}^{\mathrm{T}}v_{w_t})+\sum_{i=1}^k \mathbb{E}_{w_i\thicksim P_n(w)}[\mathrm{log}\ \sigma(-{v^\prime_{w_i}}^{\mathrm{T}}v_{w_t})]$$ 
+\\
+The code's objective function is a little different:
+ $$\frac{1}{T} \sum_{t=1}^{T} \sum_{-c\leq j\leq c, j\neq 0} \mathrm{log}\ \sigma({v^\prime_{w_{t}}}^{\mathrm{T}}v_{w_{t+j}})+\sum_{i=1}^k \mathbb{E}_{w_i\thicksim P_n(w)}[\mathrm{log}\ \sigma(-{v^\prime_{w_i}}^{\mathrm{T}}v_{w_{t+j}})]$$ 
+\\
+So the relative loss function and gradient are a little different.
+\\
+\\
+\textbf{line 338 - line 360}:\\
+Initialization of syn0 , syn1 and syn1neg.  \\
+syn0 is $v$\\
+syn1neg is $v^\prime$\\
+syn1 is used for hierarchical softmax\\
+\\
+\textbf{line 387 - line 405}:\\
+Building sentence. \\
+Every 1000 words make up a sentence.  \\
+\\
+\textbf{line 374 - line 386}:\\
+Updating learning rate every 10000 words (10 sentences)\\
+Learning rate decreases linearly. \\
+\\
+\textbf{line 416}:\\
+"word": $w_t$  \\
+\\
+\textbf{line 483 - line 531}:\\
+Skip-gram model (both negative samples and hierarchical softmax) \\
+\\
+    \textbf{line 487}: \\
+        "last word": $w_{t+j}$\\
+        \\
+    \textbf{line 489}: \\
+    		"l1": the index of $w_{t+j}$ in syn0  \\
+    		\\
+    \textbf{line 508 - line 529}:\\
+        Training Skip-gram model with negative sampling. \\
+        \\
+	\textbf{line 510}: \\
+		target word as positive sample \\
+		\\
+	\textbf{line 514}: \\
+		target word as negative samples \\
+		\\
+	\textbf{line 519}: \\
+		"l2": the index $w_t$ or $w_i$ in syn1neg \\
+		
+
+\end{document}
+
+

@@ -1,0 +1,62 @@
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: thesis.aux
+A level-1 auxiliary file: title.aux
+A level-1 auxiliary file: declaration.aux
+A level-1 auxiliary file: acknowledgements.aux
+A level-1 auxiliary file: abstract.aux
+The style file: plain.bst
+Database file #1: modelman.bib
+Name 1 in "Kevin W. Boyack, and Klavans, Richard" has a comma at the end for entry Boyack2008173
+while executing---line 1049 of file plain.bst
+Name 3 in "Li, Guan-Cheng and Lai, Ronald and Alexander, D'Amour, and Doolin, David M. and Sun, Ye and Torvik, Vetle . and Yu, Amy Z. and Fleming, Lee" has a comma at the end for entry RePEc:eee:respol:v:43:y:2014:i:6:p:941-955
+while executing---line 1049 of file plain.bst
+Warning--to sort, need author or key in gradient-descent
+Warning--empty booktitle in allison2008convergence
+Warning--empty year in allison2008convergence
+Name 1 in "Kevin W. Boyack, and Klavans, Richard" has a comma at the end for entry Boyack2008173
+while executing---line 1090 of file plain.bst
+Name 3 in "Li, Guan-Cheng and Lai, Ronald and Alexander, D'Amour, and Doolin, David M. and Sun, Ye and Torvik, Vetle . and Yu, Amy Z. and Fleming, Lee" has a comma at the end for entry RePEc:eee:respol:v:43:y:2014:i:6:p:941-955
+while executing---line 1090 of file plain.bst
+You've used 12 entries,
+            2118 wiz_defined-function locations,
+            580 strings with 6032 characters,
+and the built_in function-call counts, 4122 in all, are:
+= -- 396
+> -- 190
+< -- 1
++ -- 76
+- -- 62
+* -- 321
+:= -- 682
+add.period$ -- 35
+call.type$ -- 12
+change.case$ -- 66
+chr.to.int$ -- 0
+cite$ -- 15
+duplicate$ -- 141
+empty$ -- 336
+format.name$ -- 62
+if$ -- 860
+int.to.chr$ -- 0
+int.to.str$ -- 12
+missing$ -- 11
+newline$ -- 61
+num.names$ -- 24
+pop$ -- 64
+preamble$ -- 1
+purify$ -- 54
+quote$ -- 0
+skip$ -- 95
+stack$ -- 0
+substring$ -- 295
+swap$ -- 19
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 48
+warning$ -- 3
+while$ -- 37
+width$ -- 14
+write$ -- 128
+(There were 4 error messages)

@@ -1,0 +1,64 @@
+\chapter{Introduction}
+\label{cha:intro}
+
+% Important: you have to switch to arabic numbering here!
+\pagenumbering{arabic}
+
+\begin{itemize}
+\item Background / Context of the thesis
+\item If applicable: describe the project the thesis is related to (e.g., CoCar)
+\item Problem / Motivation
+\item Goals of the thesis
+\item For final thesis document: outline of the document
+\end{itemize}
+
+This is an example for a citation \cite{DBLP:journals/jods/KenscheQCJ07}.
+
+\section{Figures}
+
+Use vector graphics wherever possible and avoid bitmap images. Do not
+use JPG at all (they are often blurred because of the compression). If
+you have to include a bitmap graphics, use the PNG format. If you have
+to use a JPG (as in the case for the logos on the title page), make sure
+that these are images with high resolution and high quality.
+\pdfcomment{pdfcomment is a useful package to put annotations like this one into the text.}
+
+The preferred way to create a PDF image to be used in LaTeX is the following:
+\begin{enumerate}
+\item Do the image with your favorite graphics program (Powerpoint works well for many cases).
+\item Print/Save the image as a PDF file (Acrobat Professional might be required, but
+there also Open Source solutions, e.g. FreePDF)
+\item Crop the image file and remove white margins.
+\item Include it in LaTeX as in this example.
+\end{enumerate}
+
+How to refer to images:
+Figure \ref{fig:labelOfFigure1} shows something from \cite{AfratiPODS2002}
+whereas figure \ref{fig:labelOfNextFigure} is about \cite{LenzeriniPODS2002}.
+
+If your image is not your own and taken from another source, cite the source
+also in the caption.
+
+% priority where to place the figure: here, top, bottom, page
+\begin{figure}[htbp]
+  % center the image.
+  \centering
+
+  % include a png file. Adapt size to 0.5 * textwidth and retain aspect ratio (!)
+  \resizebox{\textwidth}{!}{\includegraphics{Figure1.png}}
+
+  \caption{The text under the figure \cite{AfratiPODS2002}}
+  \label{fig:labelOfFigure1}
+\end{figure}
+
+
+\begin{figure}[htbp]
+  \centering
+  % Include a pdf file but make it a little smaller than the textwidth
+  \includegraphics[width=0.5\textwidth]{Figure2.pdf}
+  % Use EPS if you cannot create PDF files
+  % (See http://www.wmf2eps.de.vu/ for creating eps files from powerpoint figures)
+  \caption{Another text under this figure \cite{LenzeriniPODS2002}}
+  \label{fig:labelOfNextFigure}
+\end{figure}
+

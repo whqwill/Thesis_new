@@ -1,0 +1,11 @@
+\thispagestyle{empty}
+
+\centerline{\Large{\textbf{Abstract}}}
+
+\vspace{2cm}
+
+\noindent Recently, machine learning especially deeplearning is very popular. Word vector is very important tool for many natural language processing when using machine larning algorithms.  There are many methods (\citep{BengioDucharmeEtAl2003},\citep{CollobertWeston2008} and \citep{MikolovSutskeverEtAl2013}) to generate word vector, usually we call this process word embedding, and call such word vector distributed representation. Most of word embedding methods can not generate word vector based on word's context, that is similar words have similar vectors. But there are still problems when doing some tasks like decting word senses. Some polysemous words can represent different mearnings in different contexts. Acoddingly, each polysemous word should have several vector. Some models have been successively proposed (\citep{HuangSocherEtAl2012},\citep{TianDaiEtAl2014} and \citep{NeelakantanShankarEtAl2015}) to do sense embeddings to represent word senses. Our thesis investigates and improves current methods with multiple senses per word . Specifically  we extend the bacis word embedding model, i.e. word2vec (\citep{MikolovSutskeverEtAl2013}), to build a sense assignmen model. In short, each word can have several senses in each word, we use some score function to decide the best sense for each word, through a lot of unsupersived learning, our model adjust senses for each word in sentences and finally generate sense vectors. This thesis implements this model in Spark to be able to execute in parallel and trains sense vectors with Wikipedia corpus. We evaluate sense vectors by doing word similarity tasks using SCWS (Contextual word Similarityes) dataset from \citep{HuangSocherEtAl2012} and WordSim-353 dataset from \citep{FinkelsteinGabrilovichEtAl2001} . 
+
+\newpage
+\thispagestyle{empty}
+\rule{0cm}{5cm}

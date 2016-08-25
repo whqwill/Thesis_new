@@ -1,0 +1,29 @@
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Neigboring words defining the specific sense of "bank".}}{2}{figure.1.1}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Graph of the $tanh$ function}}{6}{figure.2.1}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces An example of neural network with three layers}}{7}{figure.2.2}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces The neural network structure from \citep {BengioDucharmeEtAl2003}}}{9}{figure.2.3}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces word2vec}}{12}{figure.2.4}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces The network structure from \citep {HuangSocherEtAl2012}}}{16}{figure.3.1}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Architecture of MSSG model with window size $R_t=2$ and $S=3$ }}{19}{figure.3.2}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Shows the accumulated frequency of word count in range [1,51]}}{30}{figure.5.1}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Shows the accumulated frequency of word count in range [51,637]}}{30}{figure.5.2}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Shows the accumulated frequency of word count in range [637,31140]}}{31}{figure.5.3}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Shows the accumulated frequency of word count in range [637,919787]}}{31}{figure.5.4}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Shows the effect of varying embedding dimensionality of our model on the Time}}{40}{figure.6.1}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Shows the effect of varying embedding dimensionality of our model on the loss of validation set}}{41}{figure.6.2}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Shows the effect of varying embedding dimensionality of our model on the SCWS task}}{41}{figure.6.3}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Shows the effect of varying embedding dimensionality of our model on the WordSim-353 task}}{42}{figure.6.4}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Shows the number of words with different number of senses from three experiments}}{44}{figure.6.5}
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Shows the effect of varying beginning learning rate on the best loss of validation set}}{44}{figure.6.6}
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Shows the effect of varying beginning learning rate on the total number of training iterations}}{45}{figure.6.7}
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Shows the effect of reduction factor of the learning rate on the best loss of validation set}}{46}{figure.6.8}
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Shows the effect of reduction factor of the learning rate on the total number of training iterations}}{46}{figure.6.9}
+\contentsline {figure}{\numberline {6.10}{\ignorespaces Nearest words from $apple$}}{51}{figure.6.10}
+\contentsline {figure}{\numberline {6.11}{\ignorespaces Nearest words from $apple$,\ $fox$,\ $net$,\ $rock$,\ $run$ and $plant$}}{54}{figure.6.11}
+\addvspace {10\p@ }

@@ -1,0 +1,24 @@
+\documentclass[12pt]{article} % using article instead of letter class
+\usepackage{natbib} % for the bibliography
+\usepackage{parskip} % blank lines to separate paragraphs (common for letters, but not required)
+\usepackage[small]{titlesec} % make section heading small
+\begin{document}
+\thispagestyle{empty}
+
+\today
+
+Dr. Joe Smith\\
+Department of Linguistics\\
+Somewhere in the World
+
+Dear Dr. Smith:
+
+The first analysis of the \textit{that}-trace effect as a filter was given by \cite{collobert2008unified}.
+
+I look forward to hearing your comments.
+
+Sincerely\\
+Me
+\bibliographystyle{apalike} % this is one type of author-year style
+\bibliography{mybibfile} % this prints the bibliography section based on the \cite commands
+\end{document}

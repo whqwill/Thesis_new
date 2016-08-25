@@ -1,0 +1,452 @@
+\chapter{Evaluation}
+\label{cha:evaluation}
+
+
+
+In the following analysis, we use three different methods to assistant to our works. Nearest Neighbours, Similarity Task including WordSim-353 [] Dataset and the Contextual Word Similarity (SCWS) dataset from Huang[], and t-SNE based Visualization. 
+
+WordSim-353 Dataset is a Dataset made up by 353 pairs of words following by similarity scores from 10 different people and an average score. SCWS Dataset has 2003 pairs with their context respectively, which also contains 10 scores from 10 different people and an average score. 
+
+For the WordSim-353 dataset, we use the maxSim function to calculate the similarity score of two words from our model as following:
+$$maxSim(w,w^\prime)=max\{Cosine(V_{w,i},V_{w^\prime,j})\}, (1\leq i\leq N_w, 1\leq j\leq N_{w^\prime} ) $$
+where $Cosine(x, y)$ denotes the cosine similarity score of vector x and y. And as the same notation from last chapter, $N_w$ means the number of senses for word $w$, and $V_{w,i}$ represents the $i$-th sense input embedding vectors of word $w$. 
+
+For the SCWS dataset, it is similar as the \textbf{Assign} operation, we use center word to predict the context words. But here we do not do the real assignment for whole sentence which needs several times to assign until it is stable. Actually, our sense output embedding has only one sense. So we just use the normal skip-gram model's prediction function to select the best center word's sense.
+
+
+\section{Hyper-Parameters Comparison}
+
+
+Different hyper-parameters can generate different loss and spend different time and memory space. We tried many different parameters and found that the number of negative samples, the window size are not the typical factors to affect the final results. From the experience we choose $windowSize=5$ and $negNegative=10$. And we also found that it is better to choose $numRDDs$ = 20, which can balance the learning time and collection time for parameters. So in the following analysis, we do not change these three hyper-parameters shown as Table \ref{tab:fixvalue} and only focus on hyper-parameters shown in Table \ref{tab:notationhyper}. And we mainly use the time, the loss and the score of similarity task shown as Table \ref{tab:notationevalution} to compare these hyper-parameters. 
+
+To be noted that, we need two steps to train sense embedding vectors. The first step is to set the number of sense only one and train normal word embedding vectors. In second step, the program will use the result from the first step to do initialization and then train the sense embedding vectors. Finally, we decide to list only 11 experiments on Step 2 shown as Table \ref{tab:experiment11}, which are based on 8 experiments on Step 1 shown as Table \ref{tab:experiment8}. 
+
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+id & The id number of the experiment. \\ \hline
+c1 &  Min count for involving in Vocabulary\\ \hline
+vec & Vector size for each embedding vector\\ \hline
+cm &  Threshold array for different number of senses\\ \hline
+lr &  The learning rate at the beginning of the experiment.\\ \hline
+gm &  The reduction rate of learning rate for each iteration\\ \hline
+syn1 & Whether each word has only one output embedding vector\\ 
+\hline
+\multirow{2}{*}{init} 
+& The id number of experiment in step 1 \\
+&(used to initialize embedding vectors)\\
+\hline
+\end{tabular}
+\caption{Notation explaination for hyper-parameters } \label{tab:notationhyper}
+\end{center}
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+
+\multirow{2}{*}{t1} 
+& The average Training time of each iteration \\ 
+&(excluding the parameter collection).\\ \hline
+t2 & The average treeAggregate operation time of each iteration \\ \hline
+iter & The number of training iterations \\ \hline
+\multirow{2}{*}{t3} 
+&The average time of each iteration \\
+&(including Assign step, train step and parameters collection) \\ \hline
+
+t4 & Total training time \\ \hline
+loss & The best loss of validation set \\ \hline
+SCWS & The Spearman’s rank correlations on SCWS dataset. \\ \hline
+word353 & The Spearman’s rank correlations on word353 dataset \\ \hline
+
+\end{tabular}
+\caption{Notation explaination for evalutaion value } \label{tab:notationevalution}
+\end{center}
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+numRDD=20 & The number of RDD to split training data set.\\ \hline
+ windowSize=5& The window size  \\ \hline
+ numNegative=10& The number of negative samples\\ \hline
+
+\end{tabular}
+\caption{Fixed value} \label{tab:fixvalue}
+\end{center}
+\end{table}
+
+
+\begin{table}[H]
+
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+id&c1&vec&lr&gm \\ \hline
+(1) 	&  200 		& 300  	& 0.1		& 0.9	\\ \hline
+(2) 	&  200 		& 250  	& 0.1		& 0.9	\\ \hline
+(3) 	&  200 		& 200  	& 0.1		& 0.9	\\ \hline
+(4) 	&  200 		& 150  	& 0.1		& 0.9	\\ \hline
+(5) 	&  200 		& 100  	& 0.1		& 0.9	\\ \hline
+(6) 	&  200 		& 50 	& 0.1		& 0.9	\\ \hline
+(7)	&  20		& 50	& 0.1		& 0.9	\\ \hline
+(8)	&  20		& 50	& 0.01		& 0.95	\\ \hline
+\end{tabular}
+
+\caption{8 Different Experiments in Step 1} \label{tab:experiment8}
+\end{center}
+\end{table}
+
+
+\begin{table}[H]
+
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+id&c1&vec&cm&lr&gm&syn1&init \\ \hline
+1 	&  200 		& 300 	& 2000$\_$10000 	& 0.1		& 0.9	& true & (1)\\ \hline
+2	&  200		& 250   & 2000$\_$10000 	& 0.1		& 0.9	& true & (2)\\ \hline
+3	&  200		& 200   & 2000$\_$10000 	& 0.1		& 0.9	& true & (3)\\ \hline
+4	&  200		& 150   & 2000$\_$10000 	& 0.1		& 0.9	& true & (4)\\ \hline
+5 	&  200 		& 100 	& 2000$\_$10000 	& 0.1		& 0.9	& true & (5) \\ \hline
+6 	&  200 		& 50 	& 2000$\_$10000 	& 0.1		& 0.9	& true & (6)\\ \hline
+7	&  20		& 50	& 2000$\_$10000	& 0.1		& 0.9	& true & (7)\\ \hline
+8	&  20		& 50	& 2000$\_$10000	& 0.01		& 0.95	& true & (8)\\ \hline
+9 	&  20		& 50 	& 2000$\_$100000 	& 0.1		& 0.9	& true & (7)\\ \hline
+10 	&  20		& 50 	& 7000$\_$10000 	& 0.1		& 0.9	& true & (7)\\ \hline
+11 	&  20		& 50 	& 2000$\_$10000 	& 0.1		& 0.9	& false& (7)\\ \hline
+\end{tabular}
+
+\caption{11 Different Experiments in Step 2} \label{tab:experiment11}
+\end{center}
+\end{table}
+
+
+
+
+
+In the following, we build 5 comparison groups based these 11 experiments to check how these hyper-parameters affect the final validation loss, the convergence speed, training time and similarity task scores. 
+
+\paragraph{Different vector size} \ \\
+From the comparison in Table \ref{tab:group1} , it is clear that the vector size is not the key factor to affect the final loss, even though the loss from experiment 3 is a little better. And there is another interesting thing that, when vector size if bigger, the score from SCWS is better but the score from word353 is worse. 
+\begin{table}[H]
+
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+id& vec  & t1 & t2 & iter & t3 & t4 &   loss  & 	SCWS & 	word353	   \\ 
+\hline
+1 	& 300 	& 947.8	& 842	& 35	& 2272.9 &	79550  & 0.2437 &0.5048 & 0.5233  \\ 
+\hline
+2 	& 250 	& 764.7& 533	& 35	& 1755.7 &	61450  & 0.2437 &0.5083 & 0.5271 \\ 
+\hline
+3 	& 200 	& 632.5& 322	& 40	& 1389.9 &  55593  & 0.2436 &0.5103 & 0.5371 \\ 
+\hline
+4 	& 150 	& 502.7& 210	& 35	& 1069.9 &	37448  & 0.2440 &0.5048 & 0.5233 \\ 
+\hline
+5 	& 100 	& 494.7	& 70.1	& 35	& 827.30 &	28956  & 0.2446 &0.4994 & 0.5355  \\ 
+\hline
+6 	& 50 	& 342.9& 34.6	& 35	& 683.29 &	23915  & 0.2458 &0.4666 & 0.5449  \\ 
+\hline
+\end{tabular}
+\caption{Different Vector Size Comparison} \label{tab:group1} 
+\end{center}
+\end{table}
+
+
+\begin{figure}[!ht]
+  \centering
+	\includegraphics[width=0.8\textwidth]{vectime} 
+	\caption{Shows the effect of varying embedding dimensionality of our Model on the Time}
+	\label{fig:vec_time}
+\end{figure}
+
+\begin{figure}[!ht]
+  \centering
+	\includegraphics[width=0.7\textwidth]{vecSCWS} 
+	\caption{Shows the effect of varying embedding dimensionality of our Model on the SCWS task}
+	\label{fig:vec_SCWS}
+\end{figure}
+
+
+\begin{figure}[!ht]
+  \centering
+	\includegraphics[width=0.7\textwidth]{vecword353} 
+	\caption{Shows the effect of varying embedding dimensionality of our Model on the word353 task}
+	\label{fig:vec_word353}
+\end{figure}
+
+
+
+
+\paragraph{Different Min Count} \ \\
+We can find from Table \ref{tab:group2} , the size of dictionary is not the important factor based on loss or similarity tasks. Min count is used to remove some words which is not frequent. As we know , each word's embedding vector is trained based on the surrounding words. Since those words are infrequent, each of them involve the training of frequent words very few. So they won't affect the final embedding vectors of frequent words.
+
+\begin{table}[H]
+\caption{Different Min Count Comparison} \label{tab:group2} 
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+id& c1 & t1 & t2 & iter & t3 & t4 & loss & SCWS & word353	   \\ 
+\hline
+6 	&  200 	& 342.9	& 34.6	& 35	& 683.3 &	23915  & 0.2458 &0.4666 & 0.5449  \\ 
+\hline
+7	&  20	& 849.0	& 343	& 35	& 1838.1 &	64335  & 0.2457 &0.4371	&0.4891    \\ 
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\paragraph{Different Sense Count Comparison} \ \\
+From Table \ref{tab:group3} tell us ...
+
+\begin{table}[H]
+\caption{Different Sense Count Comparison} \label{tab:group3} 
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+id& cm & t1 & t2 & iter & t3 & t4 &    loss  & 	SCWS & 	word353	   \\ 
+
+\hline
+7	& 2000$\_$10000	& 849	& 343	& 35	& 1838 &	64335  & 0.2457 &0.4371	&0.4891	  \\ 
+\hline
+9 	& 2000$\_$100000 	& 798	& 338	& 35	& 1712 &	59912  & 0.2465 &0.443 & 0.498  \\ 
+\hline
+10 	& 7000$\_$10000 	& 808	& 340	& 35	& 1740  &	60909  & 0.2462 &0.4351 & 0.506  \\ 
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+\paragraph{Different Learning Rate and Gamma} \ \\
+Table \ref{tab:group4} shows that ...
+
+\begin{table}[H]
+
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
+\hline
+id& lr & gm & t1 & t2 & iter & t3 & t4 &    loss  & 	SCWS & 	word353	  \\ 
+\hline
+7	& 0.1		& 0.9		& 849	& 343	& 35	& 1838 &	64335  & 0.246 &0.4371	&0.4891	  \\ 
+\hline
+8	& 0.01		& 0.95		& 797	& 370	& 40	& 1851 &	74032  & 0.267 &..	&..	  \\ 
+\hline
+\end{tabular}
+\caption{Different Learning Rate and Gamma Comparison} \label{tab:group4} 
+\end{center}
+\end{table}
+
+\paragraph{Different Syn1 Property}  \ \\
+From \ref{tab:group5} , it is very obvious that if syn1 has multiple sense embeddings (output embeddings), the final loss is much smaller, although it needs more time to achieve convergence. The reason should be clear somehow. For each center word with giving sense, it has more options to choose, so the final loss is obviously trained smaller. But from the comparison of nearest words in \ref{tab:nearestcompare}, we can find that experiment 4 (multiple output embeddings) can not really split up the meaning of word senses, different senses of each word are very similar to each other based on the nearest words. This results also let us think about our model again. Maybe the output embedding should not be prototypes. But we don't have theoretical knowledge to explain such case and for now can not explain it properly. We think this can be the analysis working to do in the future. 
+
+\begin{table}[H]
+
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+id& syn1 & t1 & t2 & iter & t3 & t4 &    loss  & 	SCWS & 	word353	   \\ 
+\hline
+7	& true		& 849	& 343	& 35	& 1838 &	64335 & 0.2457 &0.4371	&0.4891	   \\ 
+\hline
+11 	& false		& 1192	& 365	& 45	& 2866 &	128949 & 0.2069 & & 0.4802  \\ 
+\hline
+\end{tabular}
+\caption{Different Syn1 Property Comparison} \label{tab:group5} 
+\end{center}
+\end{table}
+ 
+
+\begin{table}[H]
+
+\begin{center}
+\begin{tabular}{ |l|l|l| }
+\hline
+ & id 7 , one sense output embedding& id 11, multiple senses output embedding \\
+\hline
+\hline
+\multirow{3}{*}{apple} 
+ & cheap, junk, scrap, advertised 				& kodak, marketed, nokia, kit \\
+ & chocolate, chicken, cherry, berry 		& portable, mgm, toy, mc \\
+ & macintosh, linux, ibm, amiga			& marketed, chip, portable, packaging \\ 
+ \hline
+\multirow{3}{*}{bank} 
+ & corporation, banking, banking, hsbc & trade, trust, venture, joint \\
+ & deposit, stake, creditors, concession & trust, corporation, trade, banking \\ 
+ & banks, side, edge, thames &  banks, border, banks, country \\ 
+ \hline
+\multirow{3}{*}{cell} 
+ & imaging, plasma, neural, sensing & dna, brain, stem, virus \\
+ & lab, coffin, inadvertently, tardis & cells, dna, proteins, proteins \\
+ & cells, nucleus, membrane, tumor & dna, cells, plasma, fluid \\
+\hline
+\end{tabular}
+\caption{Nearest words comparison} \label{tab:nearestcompare} 
+\end{center}
+\end{table}
+
+ 
+\section{Case Analysis}
+
+In the following, we will select only one experiment's result to do visualization and nearest words. The selection is based on the final loss and similarity task, specifically it is experiment 7 from above.  \\
+
+Firstly we give the result from $apple$,  which is very clear. Different sense has different meanings. Table \ref{tab:sensematrixapple} shows the sense similarity matrix of $apple$. The similarity value is the cosine similarity between two embedding vectors. And table \ref{tab:nearestapple} shows the nearest words of different senses from $apple$. We can see that $apple_0$ and $apple_1$ are about food. They are similar somehow. And $apple_2$ is about company. The next are some sentence examples including $apple$ in Table \ref{tab:sentenceapple}. These are assigned sentences from the last iteration of training. To make it clear, we only display the sense label of the $apple$. We selected 100 nearest words for each sense of $apple$ and do t-SNE embedding to reduce the dimension to 2. And then we only displayed $70\%$ of words randomly to make visualization better, which is shown in Figure \ref{fig:apple}. And we use another table (Table ..) to show the comparison of with other two models (huang and em).
+ 
+\begin{table}[H]
+
+\begin{center} \begin{tabular}{|l|l|l|l|}  
+\hline
+& $apple_0$ & $apple_1$ & $apple_2$ \\ 
+\hline  
+$apple_0$  & 1.000000  & 0.788199 & 0.800783 \\ 
+\hline 
+$apple_1$  & 0.788199 & 1.000000 & 0.688523  \\ 
+\hline 
+$apple_2$  & 0.800783 & 0.688523 & 1.000000  \\
+\hline
+\end{tabular} 
+\caption{Sense Matrix Of $apple$} \label{tab:sensematrixapple} 
+\end{center}
+\end{table}
+ 
+ 
+
+\begin{table}[H]
+
+\begin{center} \begin{tabular}{|l|l|}  
+\hline 
+$apple_0$: & cheap , junk , scrap , advertised , gum , liquor , pizza   \\  
+\hline
+$apple_1$: & chocolate, chicken, cherry, berry, cream, pizza, strawberry  \\  
+\hline
+$apple_2$: & macintosh, linux, ibm, amiga, atari, commodore, server   \\  
+\hline
+\end{tabular}
+\caption{Nearest Words of $apple$} \label{tab:nearestapple} 
+\end{center}
+\end{table}
+
+
+\begin{table}[H]
+
+\begin{center} 
+\begin{tabular}{|l|l|}
+\hline
+\multirow{2}{*}{$apple_0$} 
+&he can't tell an onion from an \textcolor{red}{$apple_0$} and he's your eye witness\\
+&some fruits e.g \textcolor{red}{$apple_0$} pear quince will be ground\\
+\hline
+\multirow{2}{*}{$apple_1$} 
+&the cultivar is not to be confused with the dutch rubens \textcolor{red}{$apple_1$}\\
+&the rome beauty \textcolor{red}{$apple_1$} was developed by joel gillette \\
+\hline
+\multirow{2}{*}{$apple_2$} 
+&a list of all \textcolor{red}{$apple_2$} internal and external drives in chronological order\\
+&the game was made available for the \textcolor{red}{$apple_2$} iphone os mobile platform\\
+\hline
+\end{tabular} 
+\caption{Sentence Examples of $apple$} \label{tab:sentenceapple} 
+\end{center}
+\end{table}
+
+
+\begin{figure}[!ht]
+  \centering
+	\includegraphics[width=1.0\textwidth]{apple} 
+	\caption{Nearest words from $apple$}
+	\label{fig:apple}
+\end{figure}
+
+
+
+\paragraph{} Next, we select other 5 words $fox$ , \ $net$ , \ $rock$ , \ and $plant$, and also list nearest words as Table .. and sentence examples as Table ... in the following. The example sentences are also cut by ourself without affecting the meaning of the sentence. It's not difficult to find that $fox$ has meanings: ; $net$ has meanings: ; $rock$ has meanings: ; $plant$ has meanings: . 
+
+\begin{table}
+\begin{center} 
+\begin{tabular}{|l|l|}
+\hline
+\multirow{3}{*}{$fox$}   
+& archie, potter, wolfe, hitchcock, conan, burnett, savage  \\ 
+& buck, housewives, colbert, eastenders, howard, kane, freeze
+ \\ 
+& abc, sky, syndicated, cw, network's, ctv, pbs \\ 
+\hline
+\multirow{3}{*}{$net$}  
+& generates, atm, footprint, target, kbit/s, throughput, metering   \\  
+& trillion, rs, earnings, turnover, gross, euros, profit  \\  
+&jumped, rolled, rebound, ladder, deficit, snapped, whistle   \\  
+\hline 
+\multirow{3}{*}{$rock$}  
+&echo, surf, memphis, strawberry, clearwater, cliff, sunset  \\  
+& r$\,$b, hip, roll, indie, ska, indie, hop  
+ \\  
+&formations, crust, melting, lava, boulders, granite, dust   \\  
+\hline 
+\multirow{3}{*}{$run$}
+& blair, taft, fraser, monroe, precinct, mayor's, governor's  \\  
+& streak, rushing, tying, shutout, inning, wicket, kickoff
+ \\  
+& running, tram, travel, express, trams, inbound, long-distance \\
+\hline  
+\multirow{3}{*}{$plant$}
+& plants, insect, seeds, seed, pollen, aquatic, organic  \\  
+& flowering, orchid, genus, bird, species, plants, butterfly
+ \\  
+& electricity, steel, refinery, refinery, manufacturing, gas, turbine  \\
+\hline
+\end{tabular}
+\caption{Nearest words from $fox$ , \ $net$ , \ $rock$ , \ $run$ and \ $plant$} \label{tab:nearestwordsother} 
+\end{center}
+\end{table}
+
+
+\begin{table}
+\begin{center} 
+\begin{tabular}{|l|l|}
+\hline
+\multirow{3}{*}{$fox$} 
+&run by nathaniel mellors dan \textcolor{red}{$fox_0$} andy cooke and ashley marlowe\\
+&he can box like a \textcolor{red}{$fox_1$} he's as dumb as an ox\\
+&the grand final was replayed on fox sports australia and the \textcolor{red}{$fox_2$} footy channel\\
+\hline
+\multirow{3}{*}{$net$} 
+&\textcolor{red}{$net_0$} supports several disk image formats partitioning schemes\\
+&in mr cook was on the forbes with a \textcolor{red}{$net_1$} worth of billion \\
+&nothin but \textcolor{red}{$net_2$} freefall feet into a net below story tower\\
+\hline
+\multirow{3}{*}{$rock$} 
+&zero nine is a finnish hard \textcolor{red}{$rock_0$} band formed in kuusamo in\\
+&matt ellis b december is a folk \textcolor{red}{$rock_1$} genre singer-songwriter\\
+&cabo de natural park is characterised by volcanic \textcolor{red}{$rock_2$} formations\\
+\hline
+\multirow{3}{*}{$run$} 
+&dean announced that she intends to \textcolor{red}{$run_0$} for mayor again in the november election\\
+& we just couldn't \textcolor{red}{$run_1$} the ball coach tyrone willingham said\\
+& the terminal is \textcolor{red}{$run_2$} by british rail freight company ews\\
+\hline
+\multirow{3}{*}{$plant$} 
+&these phosphoinositides are also found in \textcolor{red}{$plant_0$} cells with the exception of pip\\
+&is a genus of flowering \textcolor{red}{$plant_1$} in the malvaceae sensu lato\\
+&was replaced with a new square-foot light fixture \textcolor{red}{$plant_2$} in sparta tn\\
+\hline
+\end{tabular} 
+\caption{Sentence Examples of $fox$ , \ $net$ , \ $rock$ , \ $run$ and \ $plant$ } \label{tab:sentenceother} 
+\end{center}
+\end{table}
+
+
+\paragraph{} In the last, for each sense of each word ($apple$, $fox$,$net$,$rock$ and $plant$), we select only 20 nearest words, and combine them together to do another t-SNE embedding, which is also two dimension. The the result is shown in Figure \ref{fig:keywords20}. 
+
+\begin{figure}[!ht]
+  \centering
+	\includegraphics[width=1.0\textwidth]{some20} 
+	\caption{Nearest words from $apple$,\ ,$fox$,\ ,$net$,\ ,$rock$,\  , $run$ and $plant$}
+	\label{fig:keywords20}
+\end{figure}
+
+\paragraph{} From the such results, we can say our model is successful to get multiple senses vectors. And it really makes sense.

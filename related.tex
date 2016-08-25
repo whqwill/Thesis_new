@@ -1,0 +1,46 @@
+\chapter{Sense Embedding}
+\label{cha:related}
+
+
+
+
+\section{Huang's Model}
+
+
+Eric H. Huang's work[] is based on the model from C$\&$W []. The goal of his working is about trying to make the word vectors with richer semantic information than other models. He had two major innovations to accomplish this goal : The first innovation is using global information from the whole text to assist local information, the second innovation is using the multiple word vectors to represent polysemy. \\
+
+Huang think C$\&$W's work uses only "local context". In the process of training vectors, C$\&$W used only 10 words as the context for each word, counting the center word itself, there are totally 11 words' information. 
+These local information can not fully exploit the semantic information of the center word. Huang used C$\&$W's neural network directly to compute a score as the "local score". 
+And then Huang proposed a "global information", which is somewhat similar to the traditional bag of words model. Bag of words is about accumulating One-hot Representation from all the words of the article together to form a vector (like all the words thrown in a bag), which is used to represent the article. Huang's global information used the average weighted vectors from all words in the article (weight is word's idf), which is considered the semantic of the article. 
+He connected such semantic vector of the article (global information) 
+with the current word's vector (local information)
+ to 
+ form 
+a new vector with 
+double size as an input, 
+and then used the C$\&$W's network to calculate the score. 
+With the "local score" from original C$\&$W approach and "Global score" from improving method based on the C$\&$W approach, Huang directly add two scores as the final score. The final score would be optimized by the pair-wise target function from C$\&$W. Huang found his model can capture better semantic information. \\
+
+The second contribution of this paper is to represent polysemy using multiple word vectors. Bengio 2003 [] also mentioned that this would be an very important issue, but he was still looking for a solution, now Huang gives an idea. For each center word, he took 10 nearest context words and calculated the weighted average of these 10 word vectors (idf weights) as the context vector. Huang used all context vectors to do k-means clustering, and relabel  each word based on the clustering results (different classes of the same words would be considered as different words to process), and finally re-trained the word vectors. The following gives some examples from his model's results.
+
+
+
+\section{EM-Algorithm based method}
+
+
+There is a very famous method based on the EM-algorithm from []. This method is the extension of normal skip-gram model. 
+
+$$P(w_O|w_I)=\frac{exp(V^\mathrm{T}_{w_I}U_{w_O})}{\sum_{w\in W}exp(V^\mathrm{T}_{w_I}U_w)}$$
+
+$$p(w_O|w_I)=\sum^{N_{w_I}}_{i=1}P(w_O|h_{w_I}=i,w_I)P(h_{w_I}=i|w_I)$$
+
+$$=\sum^{N_{w_I}}_{i=1}\frac{exp(U^{\mathrm{T}}_{w_O}V_{w_I,i})}{\sum_{w\in W exp(U^\mathrm{T}_w V_{w_I,i})}}P(h_{w_I}=i|w_I)$$
+
+$$P(w_O|h_{w_I}=i,w_I)=\prod^{L_{w_O}}_{t=1}P(b^{(w_O)}_t|w_I,h_{w_I}=i)=\prod^{L_{w_O}}_{t=1}$$
+
+
+$w_I$is the input word, $w_O$ is the output word, $(w_l, w_O)$ is a sample, in each sample $w_I$ can have multiple prototypes (more than one sense). Particularly for the input word $w$, put all samples ($w$ as the input word) together like $\{(w, w1_), (w, w_2), (w, w_3) ... (w, w_n)\}$ as a group. Each group is based on the input word. So the whole training set can be separated as several groups. For the group mentioned above, one can assume the input word $w$ has $m$ vectors ($m$ senses), each with the probability $p_j (1 \leq j \leq m)$. And each output word $w_i (1 \leq i\leq n)$ has only one vector. 
+
+
+In the training process, for each iteration, one can fetch only part of the whole training set and then split it into several groups based on the input word. In every E step, for the group mentioned above, they used soft label $y_{i,j}$ to represent the probability of input word in sample $(w,w_i)$ assigned to the $j$-th sense. The calculating of $y_{i,j}$ is based on the value of sense probability and sense vectors. After calculating each $y_{i,j}$ in each data group, in M step, they used $y_{i,j}$ to update sense probabilities and sense vectors from input word, and the word vectors from output word. The following are some results from this model.
+

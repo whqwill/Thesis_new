@@ -1,0 +1,58 @@
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Word Embedding}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Sense Embedding}{2}{section.1.2}
+\contentsline {section}{\numberline {1.3}Goal}{4}{section.1.3}
+\contentsline {section}{\numberline {1.4}Outline}{4}{section.1.4}
+\contentsline {chapter}{\numberline {2}Background}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}Word Embedding}{5}{section.2.1}
+\contentsline {section}{\numberline {2.2}Neural Probabilistic Language Model}{6}{section.2.2}
+\contentsline {paragraph}{Neural Network}{6}{section*.8}
+\contentsline {paragraph}{Statistical Language Model}{7}{section*.9}
+\contentsline {paragraph}{Neural Probabilistic Language Model}{8}{section*.10}
+\contentsline {paragraph}{Softmax Function}{9}{section*.11}
+\contentsline {section}{\numberline {2.3}The model of Collobert and Weston}{10}{section.2.3}
+\contentsline {section}{\numberline {2.4}Word2Vec}{11}{section.2.4}
+\contentsline {paragraph}{Skip-gram model with negative sampling}{12}{section*.12}
+\contentsline {chapter}{\numberline {3}Related Works}{15}{chapter.3}
+\contentsline {section}{\numberline {3.1}Huang's Model}{15}{section.3.1}
+\contentsline {section}{\numberline {3.2}EM-Algorithm based method}{16}{section.3.2}
+\contentsline {paragraph}{Objective Function}{17}{section*.13}
+\contentsline {paragraph}{Algorithm Description}{17}{section*.14}
+\contentsline {section}{\numberline {3.3}A Method to Determine the Number of Senses}{18}{section.3.3}
+\contentsline {paragraph}{MSSG}{18}{section*.15}
+\contentsline {paragraph}{NP-MSSG}{19}{section*.16}
+\contentsline {chapter}{\numberline {4}Solution}{21}{chapter.4}
+\contentsline {section}{\numberline {4.1}Definition}{21}{section.4.1}
+\contentsline {section}{\numberline {4.2}Objective Function}{22}{section.4.2}
+\contentsline {section}{\numberline {4.3}Algorithm Description}{24}{section.4.3}
+\contentsline {paragraph}{Initialization}{25}{section*.17}
+\contentsline {paragraph}{Sense Probabilities}{25}{section*.18}
+\contentsline {subparagraph}{}{25}{section*.19}
+\contentsline {subparagraph}{}{26}{section*.20}
+\contentsline {paragraph}{}{26}{section*.21}
+\contentsline {chapter}{\numberline {5}Implementation}{29}{chapter.5}
+\contentsline {section}{\numberline {5.1}Introduction of Spark}{29}{section.5.1}
+\contentsline {section}{\numberline {5.2}Implementation}{30}{section.5.2}
+\contentsline {paragraph}{Gradient Checking}{30}{section*.22}
+\contentsline {paragraph}{Data preparing}{30}{section*.23}
+\contentsline {paragraph}{Computing Environment}{34}{section*.24}
+\contentsline {paragraph}{Training set and validation set}{34}{section*.25}
+\contentsline {paragraph}{Learning Rate Reduction}{34}{section*.26}
+\contentsline {paragraph}{Iteration}{35}{section*.27}
+\contentsline {paragraph}{Assign Step}{35}{section*.28}
+\contentsline {paragraph}{Learn Step}{35}{section*.29}
+\contentsline {paragraph}{Normalization}{36}{section*.30}
+\contentsline {chapter}{\numberline {6}Evaluation}{37}{chapter.6}
+\contentsline {section}{\numberline {6.1}Results for different Hyper-Parameters}{38}{section.6.1}
+\contentsline {paragraph}{Different sizes of embedding vectors}{40}{section*.31}
+\contentsline {paragraph}{Different Min Count}{41}{section*.32}
+\contentsline {paragraph}{Different Sense Count Comparison}{45}{section*.33}
+\contentsline {paragraph}{Different Learning Rate and Gamma}{45}{section*.34}
+\contentsline {paragraph}{Different Number of Output Senses}{49}{section*.35}
+\contentsline {subsection}{\numberline {6.1.1}Comparison to prior analyses}{49}{subsection.6.1.1}
+\contentsline {section}{\numberline {6.2}Case Analysis}{51}{section.6.2}
+\contentsline {paragraph}{}{54}{section*.36}
+\contentsline {paragraph}{}{54}{section*.37}
+\contentsline {paragraph}{}{55}{section*.38}
+\contentsline {chapter}{\numberline {7}Conclusion}{57}{chapter.7}
+\contentsline {chapter}{\numberline {A}Appendix}{59}{appendix.A}

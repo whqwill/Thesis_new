@@ -1,0 +1,72 @@
+\begin{thebibliography}{10}
+
+\bibitem{gradient-descent}
+Gradient-descent example plot, 2013.
+
+\bibitem{Abbas20143}
+Assad Abbas, Limin Zhang, and Samee~U. Khan.
+\newblock A literature review on the state-of-the-art in patent analysis.
+\newblock {\em World Patent Information}, 37(0):3 -- 13, 2014.
+
+\bibitem{ASTCA}
+CharuC. Aggarwal and ChengXiang Zhai.
+\newblock A survey of text clustering algorithms.
+\newblock In Charu~C. Aggarwal and ChengXiang Zhai, editors, {\em Mining Text
+  Data}, pages 77--128. Springer US, 2012.
+
+\bibitem{allison2008convergence}
+Paul~D Allison.
+\newblock Convergence failures in logistic regression.
+\newblock Citeseer.
+
+\bibitem{battiti1989accelerated}
+Roberto Battiti.
+\newblock Accelerated backpropagation learning: Two optimization methods.
+\newblock {\em Complex systems}, 3(4):331--342, 1989.
+
+\bibitem{Boyack2008173}
+Kevin~W. Boyack and Richard Klavans.
+\newblock Measuring science-technology interaction using rare inventor-author
+  names.
+\newblock {\em Journal of Informetrics}, 2(3):173 -- 182, 2008.
+
+\bibitem{MISLT}
+Bruno Cassiman, Patrick Glenisson, and Bart Van~Looy.
+\newblock Measuring industry-science links through inventor-author relations: A
+  profiling methodology.
+\newblock {\em Scientometrics}, 70(2):379--391, 2007.
+
+\bibitem{RePEc:eee:respol:v:43:y:2014:i:6:p:941-955}
+Guan-Cheng Li, Ronald Lai, D?Amour Alexander, David~M. Doolin, Ye~Sun, Vetle~.
+  Torvik, Amy~Z. Yu, and Lee Fleming.
+\newblock Disambiguation and co-authorship networks of the u.s. patent inventor
+  database (1975?2010).
+\newblock {\em Research Policy}, 43(6):941--955, 2014.
+
+\bibitem{iaifs}
+Stphane Maraut and Catalina Martnez.
+\newblock Identifying author-inventors from spain: methods and a first insight
+  into results.
+\newblock {\em Scientometrics}, 101(1):445--476, 2014.
+
+\bibitem{682181}
+E.S. Ristad and P.N. Yianilos.
+\newblock Learning string-edit distance.
+\newblock {\em Pattern Analysis and Machine Intelligence, IEEE Transactions
+  on}, 20(5):522--532, May 1998.
+
+\bibitem{RePEc:grt:wpegrt:2012-29}
+Michele PEZZONI (University of Milano-Bicocca KiTES-Universit Bocconi
+  Observatoire des Sciences et~des Techniques), Francesco Lissoni, and
+  Universit Bocconi), Gianluca TARASCONI~(KiTES.
+\newblock How to kill inventors: Testing the massacrator algorithm for inventor
+  disambiguation.
+\newblock Cahiers du gretha, Groupe de Recherche en Economie Thorique et
+  Applique, 2012.
+
+\bibitem{tseng2007text}
+Yuen-Hsien Tseng, Chi-Jen Lin, and Yu-I Lin.
+\newblock Text mining techniques for patent analysis.
+\newblock {\em Information Processing \& Management}, 43(5):1216--1247, 2007.
+
+\end{thebibliography}

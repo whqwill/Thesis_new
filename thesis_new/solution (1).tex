@@ -1,0 +1,188 @@
+\chapter{Solution}
+\label{cha:solution}
+
+In this section we present a model for the automatic generation of embeddings for the different senses of words. Generally speaking, our model is a extension of skip-gram model with negative sampling. We assume each word in the sentence can have one or more senses. As described above  \cite{HuangSocherEtAl2012} cluster the embeddings of word contexts to label word senses and once assigned, these senses can not be changed. Our model is different. We do not assign senses to words in a preparatory step, instead we just initialize each word with random senses and they can be adjusted afterwards. We also follow the idea from EM-Algorithm based method \citep{TianDaiEtAl2014}, word's different senses have different probabilities, the probability can represent if a sense is used frequent in the corpus. 
+
+
+In fact, after some experiments, we found our original model is not good. So we simplified our original model. Anyhow we will introduce our original model and show the failures in the next chapter, and explain the simplification. 
+
+\section{Definition}
+
+$C$ is the corpus containing \gls{M} % $M$ 
+sentences, like $(S_1,S_2,\ldots,S_M)$, and each sentence is made up by several words like $S_i = (w_{i,1},w_{i,2},\ldots,w_{i,L_i})$ where $L_i$ is the length of sentence $S_i$. We use $\gls{wij} \in D$ %w_{i,j}
+to represent the word token from the vocabulary $D$ in the position $j$ of sentence $S_i$. We assume that each word $w\in D$ in each sentence has $\gls{Nw}\ge1$ % $N_w$
+senses.  We use the lookup function $h$ to assign senses to words in a sentence, specifically $h_{i,j}$ is the sense index of word $w_{i,j}$  ($1\leq h_{i,j}\leq N_{w_{i,j}}$). 
+
+
+
+Similar to \cite{MikolovSutskeverEtAl2013} we use two different embeddings for the input and the output of the network.
+Let $V$ and $U$ to represent respectively the set of input embedding vectors and the set of output embedding vectors respectively. And each embedding vectors has the dimension $d$. Additionally, $\gls{Vws} \in \Re^d$ % V_{w,s}
+means the input embedding vectors from sense $s$ of word $w$. Similarly
+$\gls{Uws} \in \Re^d$ % U_{w,s} 
+is the ouput embedding of word $w$ where  $w\in D$, $1\leq s\leq N_w$. Following the Skip-gram model with negative sampling, \gls{K}. %$K$ 
+The context  of a word $w_t$ in the sentence $S_i$ may be defined as the subsequence of the words  
+$\gls{contextWt} = (w_{i,\max(t-c,0)},\ldots,w_{i,t-1},w_{i,t+1},\ldots,w_{i,\min(t+c,L_i)})$,  
+where \gls{c} % $c$
+is the size of context. And $P_n(w)$ \com{What is $n$?}
+is the smoothed unigram distribution which is used to generate negative samples. Specifically, $P_n(w) = \frac{count(w)^{\frac{3}{4}}}{(\sum_{i=1}^M L_i)^{\frac{3}{4}}}$ ($w\in D$), where $count(w)$ is the number of times $w$ occurred in $C$ and $\sum_{i=1}^M L_i$ is the number of total words in $C$.
+
+\section{Objective Function}
+\com{What is this objective function for? Why is it defined?}
+\com{What is $(w_{i,t+j},h_{i,t+j})$}
+
+\begin{equation}
+\begin{split}
+G = \frac{1}{M}\sum_{i=1}^M\frac{1}{L_i}\sum_{t=1}^{L_i}\sum\limits_{\mbox{\tiny$\begin{array}{c}-c\leq j \leq c\\ j\neq 0\\ 1\leq j+t\leq L_i\end{array}$}}\Bigg (\mathrm{log}\ p\Big [(w_{i,t+j},h_{i,t+j})|(w_{i,t},h_{i,t})\Big ] \\
++\sum\limits_{k=1}^K\mathbb{E}_{z_k\sim P_n(w)}\mathrm{log}\ \Big \{1-p\Big[[z_k,R(N_{z_k})]|(w_{i,t},h_{i,t})\Big ] \Big \} \Bigg )
+\end{split}
+\end{equation} 
+
+where $p\Big[(w^\prime,s^\prime)|(w,s)\Big] = \sigma({U_{w^\prime,s^\prime}}^{\mathrm{T}}V_{w,s})$
+ and $\sigma(x) = \frac{1}{1+\mathrm{e}^{-x}}$. 
+ 
+ $p\Big [(w_{i,t+j},h_{i,t+j})|(w_{i,t},h_{i,t})\Big ]$ is the probability of using center word $w_{i,t}$ with sense $h_{i,t}$ to predict one surrounding word $w_{i,t+j}$ with sense $h_{i,t+j}$, which needs to be \textbf{maximized}.
+$[z_1,R(N_{z_1})]$,\ldots,$[(z_K,R(N_{z_K})]$ are the negative sample words with random assigned senses to replace $(w_{i,t+j},h_{i,t+j})$, and $p\Big[[z_k,R(N_{z_k})]|(w_{i,t},h_{i,t})\Big ]\ (1\leq k\leq K)$ is the probability of using center word $w_{i,t}$ with sense $h_{i,t}$ to predict one negative sample word $z_k$ with sense $R(N_{z_k})$, which needs to be \textbf{minimized}. 
+It is noteworthy that, $h_{i,t}$  ($w_{i,t}$'s sense) and $h_{i,t+j}$ ($w_{i,t+j}$'s sense) are assigned advance and $h_{i,t}$ may be changed in the \textbf{Assign}. But $z_k$'s sense $s_k$ is always assigned randomly. \\
+
+The final objective is to find out optimized parameters $\theta = \{h,U,V\}$ to maximize the Objective Function $G$, where $h$ is updated in the \textbf{Assign} and $\{U,V\}$ is updated in the \textbf{Learn}.
+
+\com{Is this for sense assignment?} When the center word $w_{i,t}$ is giving, we use \textbf{score function} $f_{i,t}$ with fixed negative samples $\displaystyle{\mathop{\cup}_{\mbox{\tiny$\begin{array}{c}-c\leq j \leq c\\ j\neq 0\\ 1\leq j+t\leq L_i\end{array}$}}}[(z_{j,1},s_{j,1}),\ldots,(z_{j,K},s_{j,K})]$ \ (senses are assigned randomly already)
+$$f_{i,t}(s) = \sum\limits_{\mbox{\tiny$\begin{array}{c}-c\leq j \leq c\\ j\neq 0\\ 1\leq t+j\leq L_i\end{array}$}}\Bigg (\mathrm{log}\ p[(w_{i,t+j},h_{i,t+j})|(w_{i,t},s) ]+\sum\limits_{k=1}^K\mathrm{log}\ \Big \{1-p[(z_{j,k},s_{j,k})|(w_{i,t},s)] \Big \} \Bigg )$$ 
+to select the "best" sense (with the max value) of each center word in the \textbf{Assign}. \\
+
+Taking $[ (w_{i,t},h_{i,t}),(w_{i,t+j},h_{i,t+j})]$ as a training sample, we define \textbf{loss function} $loss$ for each sample as
+$$loss\big ( (w_{i,t},h_{i,t}),(w_{i,t+j},h_{i,t+j})\big )$$
+$$ = -\mathrm{log}\ p\Big [(w_{i,t+j},h_{i,t+j})|(w_{i,t},h_{i,t})\Big ]-\sum\limits_{k=1}^K\mathbb{E}_{z_k\sim P_n(w)}\mathrm{log}\ \Big \{1-p\Big[[z_k,R(N_{z_k})]|(w_{i,t},h_{i,t})\Big ] \Big \}$$
+Here the loss is defined as the negative log probability. \\
+
+And the loss function of whole corpus is $$loss(C)=\frac{1}{M}\sum_{i=1}^M\frac{1}{L_i}\sum_{t=1}^{L_i}\sum\limits_{\mbox{\tiny$\begin{array}{c}-c\leq j \leq c\\ j\neq 0\\ 1\leq j+t\leq L_i\end{array}$}}loss\big ( (w_{i,t},h_{i,t}),(w_{i,t+j},h_{i,t+j})\big )$$
+
+	After \textbf{Assign}, $h$ is fixed. So we the same method in the normal Skip-gram with negative sampling model (stochastic gradient decent) to minimize $G$ in the \textbf{Learn}. So the objective of \textbf{Learn} is 
+	$$\arg\min_{\{V,U\}} \frac{1}{M}\sum_{i=1}^M\frac{1}{L_i}\sum_{t=1}^{L_i}\sum\limits_{\mbox{\tiny$\begin{array}{c}-c\leq j \leq c\\ j\neq 0\\ 1\leq j+t\leq L_i\end{array}$}}loss\big ( (w_{i,t},h_{i,t}),(w_{i,t+j},h_{i,t+j})\big )$$
+	
+	
+Use 
+	$$N = \frac{1}{M}\sum_{i=1}^M\frac{1}{L_i}\sum_{t=1}^{L_i}\sum\limits_{\mbox{\tiny$\begin{array}{c}-c\leq j \leq c\\ j\neq 0\\ 1\leq j+t\leq L_i\end{array}$}} 1$$
+	to represent the number of total training samples in one epoch. (An epoch is a measure of the number of times all of the training samples are used once.) .\\
+	
+	Use stochastic gradient descent: 
+	\begin{itemize}
+	\item For $N$ Iterations: 
+		\begin{itemize}
+		\item For each training sample $(w_{i,t},w_{i,{t+j}})$
+		\begin{itemize}
+		\item Generate negative sample words to replace $w_{i,t+j}$: $(w_1,\ldots,z_k)$
+		\item Calculate the gradient $\Delta = -\nabla_{\{V,U\}} loss(w_{i,t},w_{i,{t+j}})$
+		\item $\Delta$ is only made up by $\{\Delta_{V_{w_{i,t}}}, \Delta_{U_{w_{i,t+j}}}, [\Delta_{U_{w_1}},\ldots,\Delta_{U_{z_k}}]\}$
+		\item Update Embeddings: 
+		\begin{itemize}
+		\item $V_{w_{i,t}} = V_{w_{i,t}}+\alpha\Delta_{V_{w_{i,t}}}$
+		\item $U_{w_{i,t+j}} = U_{w_{i,t+j}}+\alpha\Delta_{U_{w_{i,t+j}}}$
+		\item $U_{z_k} = U_{z_k}+\alpha\Delta_{U_{z_k}}, 1\leq k\leq K$ 
+		\end{itemize}
+		($\alpha$ is the learning rate and will be updated every several iterations)
+		\end{itemize}
+		\end{itemize}
+	\end{itemize}
+\com{You could use the algorithmic package}
+
+\section{Algorithm Description}
+
+In the beginning, in each word of each sentence, senses are assigned \textbf{randomly}, that is $h_{i,j}$ is set to any value between $1$ to $N_{w_{i,j}}$. $N_{w_{i,j}}$ can be decide by the count of word in corpus. If the count is much, the max number of senses would be much as well. Every sense have both input embedding and output embedding, although the final experiment results shows that output embedding should have only one sense.\\
+
+The training algorithm is an iterating between \textbf{Assign} and \textbf{Learn}. The \textbf{Assign} is to use the \textbf{score function} (sum of log probability) to select the best sense of the center word. And it uses above process to adjust senses of whole sentence and repeats that until sense assignment of the sentence is stable (not changed). The \textbf{Learn} is to use the new sense assignment of each sentence and the gradient of the \textbf{loss function} to update the input embedding and output embedding of each sense (using stochastic gradient decent). 
+
+\paragraph{Initialization}\ \\
+Input embedding vectors and output embedding vectors will be initialized from the normal Skip-gram model, which can be some public trained word vectors dataset. But in the next chapter, our experiment actually always do two steps. The first step is like normal skip-gram model and all words have only one sense. After that , the second step will use the result from that to initialize . Specifically, we use word embedding vectors from normal skip-gram model pluses some small random value (vector) to be their sense embedding vectors. Of course for different senses of the same word, the random values (vectors) are different. So in the beginning, sense vectors of each word are different but similar.
+
+
+\paragraph{Sense Probabilities}\ \\
+Each word has several senses. Each sense has a probability, in initialization they are set equally. For each assignment part, the probability will change based on the number of selected. Notice that , EM-Algorithm also uses sense probabilities. But our purpose to use sense probability is different. In their model, each frequent word has several senses in the meantime  with different probabilities, and in each iteration they will update the probabilities and all sense embedding vectors. While in our model, in each iteration, each word can only have one sense which can be adjusted, and after \textbf{Assign}, we only update the assigned sense. But we still use sense probabilities. The usefulness is also about recording the sense frequency, that is the assigned frequency. Some senses are selected in the \textbf{Assign}, their relative probabilities will increase. Correspondingly, for other senses which are not selected, their probabilities will decrease. 
+
+So what is useful of these sense probabilities? Actually, they are not just used to record the assigned frequency. If some sense's probability is too low, we will use some frequent sense (assigned frequently) to reset this sense with some small random value (vector) as the same operation in the initialization. Otherwise, the infrequent assigned senses in the early iterations will always be ignored in the next iterations. Actually, we already did some experiments without sense probabilities and these experiments' results really told use the above situation. \\
+
+
+Next, we will describe the specific steps of \textbf{Assign} and \textbf{Learn} in the form of pseudo-code.
+\com{You may use the algorithmic environment}
+
+\paragraph{} \textbf{Assign}:\\
+\begin{algorithmic}
+	\For{$i$:= 1 TO $M$} \Comment{Loop over sentences.}
+  \Repeat 
+  \For{$t$:= 1 TO $L_i$} \Comment{Loop over words.}
+\State $h_{i,t} = \max\limits_{1\leq s\leq N_{w_{i,t}}} f_{i,t}(s)$ 
+  \EndFor
+  \Until{no $h_{i,t}$ changed}
+	\EndFor
+	
+\end{algorithmic}
+
+\com{to be replaced}
+FOR $i$:= 1 TO $M$
+
+\ \ \ \ DO
+
+\ \ \ \ \ \ \ \ FOR $t$:= 1 TO $L_i$
+
+\ \ \ \ \ \ \ \ \ \ \ \ $h_{i,t} = \max\limits_{1\leq s\leq N_{w_{i,t}}} f_{i,t}(s)$
+
+\ \ \ \ \ \ \ \ END
+
+\ \ \ \ UNTIL no $h_{i,t}$ changed
+
+END
+
+\paragraph{} \textbf{Learn}:\\
+
+FOR $i$:= 1 TO $M$
+
+\ \ \ \ FOR $t$:= 1 TO $L_i$
+
+\ \ \ \ \ \ \ \ FOR $j$:= $-c$ TO $c$
+
+\ \ \ \ \ \ \ \ \ \ \ \ IF $j\neq 0$ AND $t+j\geq1$ AND $t+j\leq L_i$ THEN
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ generate negative samples $\big [(z_1,s_1),\ldots,(z_K,s_K)\big ]$
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\Delta = -\nabla_\theta loss\big ( (w_{i,t},h_{i,t}),(w_{i,t+j},h_{i,t+j})\big )$
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\Delta$ is made up by $ \{\Delta_{V_{w_{i,t},h_{i,t}}}, \Delta_{U_{w_{i,t+j},h_{i,t+j}}}, [\Delta_{U_{w_1,w_1}},\ldots,\Delta_{U_{z_k,z_k}}]\}$
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $V_{w_{i,t},h_{i,t}} = V_{w_{i,t},h_{i,t}} + \alpha \Delta_{V_{w_{i,t},h_{i,t}}}$
+ 
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $U_{w_{i,t+j},h_{i,t+j}} = U_{w_{i,t+j},h_{i,t+j}} + \alpha \Delta_{U_{w_{i,t+j},h_{i,t+j}}}$ 
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $U_{z_k,s_k} = U_{z_k,s_k} + \alpha \Delta_{U_{z_k,s_k}}, 1\leq k\leq K$ 
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+ 
+\ \ \ \ \ \ \ \ \ \ \ \ END 
+
+\ \ \ \ \ \ \ \  END
+
+\ \ \ \ END
+
+END\\
+
+The detail of gradient calculation of $loss\big ( (w_{i,t},h_{i,t}),(w_{i,t+j},h_{i,t+j})\big )$ is
+$$\Delta_{V_{w_{i,t},h_{i,t}}} = -\frac{\partial loss\big ( (w_{i,t},h_{i,t}),(w_{i,t+j},h_{i,t+j})\big )}{\partial V_{w_{i,t},h_{i,t}}} $$
+$$= [1-\mathrm{log}\ \sigma({U_{w_{i,t+j},h_{i,t+j}}}^{\mathrm{T}}V_{w_{i,t},h_{i,t}})]
+U_{w_{i,t+j},h_{i,t+j}}+\sum_{k=1}^K [-\mathrm{log}\ \sigma({U_{z_k,s_k}}^{\mathrm{T}}V_{w_{i,t},h_{i,t}}))]U_{z_k,s_k}$$
+
+$$\Delta_{U_{w_{i,t+j},h_{i,t+j}}} = -\frac{\partial loss\big ( (w_{i,t},h_{i,t}),(w_{i,t+j},h_{i,t+j})\big )}{\partial U_{w_{i,t+j},h_{i,t+j}}}$$
+$$=[1-\mathrm{log}\ \sigma({U_{w_{i,t+j},h_{i,t+j}}}^{\mathrm{T}}V_{w_{i,t},h_{i,t}})]
+V_{w_{i,t},h_{i,t}}$$
+
+$$\Delta_{U_{z_k,s_k}} = -\frac{\partial loss\big ( (w_{i,t},h_{i,t}),(w_{i,t+j},h_{i,t+j})\big )}{\partial U_{z_k,s_k}}$$
+$$=[-\mathrm{log}\ \sigma({U_{z_k,s_k}}^{\mathrm{T}}V_{w_{i,t},h_{i,t}}))]V_{w_{i,t},h_{i,t}}$$
+
+
+\paragraph{}
+Iterating between \textbf{Assign} and \textbf{Learn} till the convergence of the value of $G$ makes the whole algorithm complete. Actually, we use the loss of validation set to monitor if the training process is convergence. After a couple of iterations, we do the similar \textbf{Assign} operation on validation set and then calculate the loss. To be noted that, the \textbf{Assign} on validation set is a little different from the one on training set. Here, the negative samples needs to be always fixed throughout the training process. Another thing is that validation set and training set should not be overlapped. As long as the validation loss begin to increase.  We stop training. And select the result with best validation loss as the final result. 
+

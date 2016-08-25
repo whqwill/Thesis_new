@@ -1,0 +1,78 @@
+id8:
+
+           apple_0    apple_1    apple_2    
+apple_0      1.000000   0.788199   0.800783 
+apple_1      0.788199   1.000000   0.688523 
+apple_2      0.800783   0.688523   1.000000 
+------  nearest cosine dist neighbors of apple_0  -----
+apple, cheap, junk, scrap, advertised, gum, ---------------------------------------------------------------------------------------
+------  nearest cosine dist neighbors of apple_1  -----
+apple, chocolate, chicken, cherry, berry, cream, ---------------------------------------------------------------------------------------
+------  nearest cosine dist neighbors of apple_2  -----
+apple, macintosh, linux, ibm, amiga, atari, ---------------------------------------------------------------------------------------
+=========================================================================================
+
+           bank_0     bank_1     bank_2     
+bank_0       1.000000   0.747751   0.625814 
+bank_1       0.747751   1.000000   0.596810 
+bank_2       0.625814   0.596810   1.000000 
+------  nearest cosine dist neighbors of bank_0  -----
+bank, corporation, banking, banking, hsbc, savings, ---------------------------------------------------------------------------------------
+------  nearest cosine dist neighbors of bank_1  -----
+bank, deposit, stake, creditors, concession, buyer, ---------------------------------------------------------------------------------------
+------  nearest cosine dist neighbors of bank_2  -----
+bank, banks, side, edge, thames, opposite, ---------------------------------------------------------------------------------------
+=========================================================================================
+
+           cell_0     cell_1     cell_2     
+cell_0       1.000000   0.710993   0.850664 
+cell_1       0.710993   1.000000   0.671128 
+cell_2       0.850664   0.671128   1.000000 
+------  nearest cosine dist neighbors of cell_0  -----
+cell, imaging, plasma, neural, sensing, ct, ---------------------------------------------------------------------------------------
+------  nearest cosine dist neighbors of cell_1  -----
+cell, lab, coffin, inadvertently, bathroom, tardis, ---------------------------------------------------------------------------------------
+------  nearest cosine dist neighbors of cell_2  -----
+cell, cells, nucleus, membrane, tumor, nerve, ---------------------------------------------------------------------------------------
+=========================================================================================
+
+
+id4:
+
+           apple_0    apple_1    apple_2    
+apple_0      1.000000   0.777978   0.844839 
+apple_1      0.777978   1.000000   0.709406 
+apple_2      0.844839   0.709406   1.000000 
+------  nearest cosine dist neighbors of apple_0  -----
+apple, kodak, marketed, nokia, kit, dell, ---------------------------------------------------------------------------------------
+------  nearest cosine dist neighbors of apple_1  -----
+apple, portable, mgm, toy, mc, burger, ---------------------------------------------------------------------------------------
+------  nearest cosine dist neighbors of apple_2  -----
+apple, marketed, chip, portable, packaging, kit, ---------------------------------------------------------------------------------------
+=========================================================================================
+
+           bank_0     bank_1     bank_2     
+bank_0       1.000000   0.863291   0.612779 
+bank_1       0.863291   1.000000   0.854882 
+bank_2       0.612779   0.854882   1.000000 
+------  nearest cosine dist neighbors of bank_0  -----
+bank, trade, trust, venture, joint, corporation, ---------------------------------------------------------------------------------------
+------  nearest cosine dist neighbors of bank_1  -----
+bank, trust, corporation, trade, banking, merger, ---------------------------------------------------------------------------------------
+------  nearest cosine dist neighbors of bank_2  -----
+bank, banks, border, banks, country, east, ---------------------------------------------------------------------------------------
+=========================================================================================
+
+           cell_0     cell_1     cell_2     
+cell_0       1.000000   0.606970   0.864857 
+cell_1       0.606970   1.000000   0.840675 
+cell_2       0.864857   0.840675   1.000000 
+------  nearest cosine dist neighbors of cell_0  -----
+cell, dna, brain, stem, virus, radiation, ---------------------------------------------------------------------------------------
+------  nearest cosine dist neighbors of cell_1  -----
+cell, cells, dna, proteins, proteins, brain, ---------------------------------------------------------------------------------------
+------  nearest cosine dist neighbors of cell_2  -----
+cell, dna, cells, plasma, fluid, radiation, ---------------------------------------------------------------------------------------
+=========================================================================================
+
+

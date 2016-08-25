@@ -1,0 +1,25 @@
+/opt/spark/bin/spark-submit --master local[1] --conf "spark.driver.maxResultSize=110g" --driver-memory 110g --class de.fraunhofer.iais.kd.haiqing.test SparkWord2Vec.jar /home/IAIS/hwang/SparkWord2Vec/maxSim300.txt /home/IAIS/hwang/SparkWord2Vec/sim.txt > avg1.log
+
+/opt/spark/bin/spark-submit --master local[1] --conf "spark.driver.maxResultSize=110g" --driver-memory 110g --class de.fraunhofer.iais.kd.haiqing.test SparkWord2Vec.jar /home/IAIS/hwang/SparkWord2Vec/maxSim250.txt /home/IAIS/hwang/SparkWord2Vec/sim.txt > avg2.log 
+
+/opt/spark/bin/spark-submit --master local[1] --conf "spark.driver.maxResultSize=110g" --driver-memory 110g --class de.fraunhofer.iais.kd.haiqing.test SparkWord2Vec.jar /home/IAIS/hwang/SparkWord2Vec/maxSim3.txt /home/IAIS/hwang/SparkWord2Vec/sim.txt > avg3.log
+
+
+/opt/spark/bin/spark-submit --master local[1] --conf "spark.driver.maxResultSize=110g" --driver-memory 110g --class de.fraunhofer.iais.kd.haiqing.test SparkWord2Vec.jar /home/IAIS/hwang/SparkWord2Vec/maxSim4.txt /home/IAIS/hwang/SparkWord2Vec/sim.txt > avg4.log
+
+
+/opt/spark/bin/spark-submit --master local[1] --conf "spark.driver.maxResultSize=110g" --driver-memory 110g --class de.fraunhofer.iais.kd.haiqing.test SparkWord2Vec.jar /home/IAIS/hwang/SparkWord2Vec/maxSim5.txt /home/IAIS/hwang/SparkWord2Vec/sim.txt > avg5.log
+
+
+/opt/spark/bin/spark-submit --master local[1] --conf "spark.driver.maxResultSize=110g" --driver-memory 110g --class de.fraunhofer.iais.kd.haiqing.test SparkWord2Vec.jar /home/IAIS/hwang/SparkWord2Vec/maxSim6.txt /home/IAIS/hwang/SparkWord2Vec/sim.txt > avg6.log
+
+
+/opt/spark/bin/spark-submit --master local[1] --conf "spark.driver.maxResultSize=110g" --driver-memory 110g --class de.fraunhofer.iais.kd.haiqing.test SparkWord2Vec.jar /home/IAIS/hwang/SparkWord2Vec/maxSim7.txt /home/IAIS/hwang/SparkWord2Vec/sim.txt > avg7.log
+
+/opt/spark/bin/spark-submit --master local[1] --conf "spark.driver.maxResultSize=110g" --driver-memory 110g --class de.fraunhofer.iais.kd.haiqing.test SparkWord2Vec.jar /home/IAIS/hwang/SparkWord2Vec/maxSim9.txt /home/IAIS/hwang/SparkWord2Vec/sim.txt > avg9.log
+
+/opt/spark/bin/spark-submit --master local[1] --conf "spark.driver.maxResultSize=110g" --driver-memory 110g --class de.fraunhofer.iais.kd.haiqing.test SparkWord2Vec.jar /home/IAIS/hwang/SparkWord2Vec/maxSim10.txt /home/IAIS/hwang/SparkWord2Vec/sim.txt > avg10.log
+
+/opt/spark/bin/spark-submit --master local[1] --conf "spark.driver.maxResultSize=110g" --driver-memory 110g --class de.fraunhofer.iais.kd.haiqing.test SparkWord2Vec.jar /home/IAIS/hwang/SparkWord2Vec/maxSim11.txt /home/IAIS/hwang/SparkWord2Vec/sim.txt > avg11.log
+
+

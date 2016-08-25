@@ -1,0 +1,20 @@
+\BOOKMARK [1][-]{section.0.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.0.2}{Mathematical Knowledge}{}% 2
+\BOOKMARK [1][-]{section.0.3}{Word Embedding}{}% 3
+\BOOKMARK [2][-]{subsection.0.3.1}{Word-Context Pairs}{section.0.3}% 4
+\BOOKMARK [2][-]{subsection.0.3.2}{PMI and PPMI}{section.0.3}% 5
+\BOOKMARK [2][-]{subsection.0.3.3}{SVD on PPMI}{section.0.3}% 6
+\BOOKMARK [2][-]{subsection.0.3.4}{SGNS}{section.0.3}% 7
+\BOOKMARK [2][-]{subsection.0.3.5}{Comparison}{section.0.3}% 8
+\BOOKMARK [2][-]{subsection.0.3.6}{Details of SGNS}{section.0.3}% 9
+\BOOKMARK [1][-]{section.0.4}{Word2Vec}{}% 10
+\BOOKMARK [2][-]{subsection.0.4.1}{Skip-gram model with Hierarchical Softmax}{section.0.4}% 11
+\BOOKMARK [2][-]{subsection.0.4.2}{Skip-gram model with Negative Sampling}{section.0.4}% 12
+\BOOKMARK [1][-]{section.0.5}{EM Algorithm based on SGHS}{}% 13
+\BOOKMARK [1][-]{section.0.6}{Sense Assignment based on SGNS}{}% 14
+\BOOKMARK [2][-]{subsection.0.6.1}{Introduction}{section.0.6}% 15
+\BOOKMARK [2][-]{subsection.0.6.2}{Definition}{section.0.6}% 16
+\BOOKMARK [2][-]{subsection.0.6.3}{Objective Function}{section.0.6}% 17
+\BOOKMARK [2][-]{subsection.0.6.4}{Algorithm Description}{section.0.6}% 18
+\BOOKMARK [1][-]{section.0.7}{Implementation and Evaluation}{}% 19
+\BOOKMARK [1][-]{section.0.8}{Conclusion}{}% 20

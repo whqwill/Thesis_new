@@ -1,0 +1,14 @@
+skip-gram & plants,flowering,weed,fungus,biomass
+
+{MSSG} 
+& pear, honey, pumpkin, potato, nut,
+& microsoft, activision, sony, retail, gamestop,
+& machintosh, pc, ibm, iigs, chipsets,
+
+{NP-MSSG}
+& apricot, blackberry, cabbage, blackberries, pear, 
+& microsoft, ibm, wordperfect, amiga, trs-80
+
+{}
+
+

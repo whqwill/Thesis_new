@@ -1,0 +1,507 @@
+\documentclass[12pt,a4paper,twoside]{book}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%
+% In general useful packages
+%%%%%%
+\usepackage[latin1]{inputenc} % allow Umlauts
+\usepackage[T1]{fontenc} % Umlauts as character in font
+\usepackage{fancyhdr}   % Header/Footer
+\usepackage[pdftex]{graphicx}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+
+%%%%%%
+% The following packages are optional, uncomment them if useful and required
+%%%%%%
+\usepackage{fancyvrb}   % extended verbatim environment
+% \usepackage{latexsym}   % additional symbols
+% \usepackage{times}      % bessere Schrift in PS-Dateien
+% \usepackage{longtable}  % long tables (with page breaks)
+% \usepackage{breakcites}  % linebreaks in cites
+
+\usepackage[us]{datetime} % date in \today as "Month DD, YYYY", e.g., "February 29, 2012"
+
+
+%%%%%%
+% Hyperlinks in PDF output (blue borders, text color unchanged)
+%%%%%%
+\usepackage[plainpages=false, pdfpagelabels, bookmarks,  colorlinks=false,
+               linkbordercolor={0 0 1}, filebordercolor={0 0 1}, citebordercolor={0 0 1},
+               menubordercolor={0 0 1}, urlbordercolor={0 0 1}]{hyperref}
+
+%%%%%%
+% Another set of useful packages
+%%%%%%
+% \usepackage[square]{natbib}  % more powerful and customizable references
+% \usepackage[center]{caption} % centered, multi-line captions of figures and tables
+% \usepackage{floatflt}        % floats (e.g., figures & tables) which can have floating text around them
+% \usepackage[thmmarks]{ntheorem}    % extended theorem environment
+\usepackage{pdfcomment}  % comments in text as PDF notes
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Layout %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% German style (no paragraph indent, but gap between paragraphs)
+ \setlength{\parindent}{0mm}
+% \setlength{\parskip}{4pt plus3pt minus2pt}
+
+% Page width and margins (usually no need to change, just use a4wide package)
+% \setlength{\textwidth}{15cm}
+% \addtolength{\oddsidemargin}{1mm}
+% \addtolength{\evensidemargin}{-13.5mm}
+\usepackage{a4wide} % better than individual setup
+
+% For fancyhdr, otherwise it might result in "overfull vbox"
+\addtolength{\headheight}{3.5pt}
+
+% URL Prefix for Bibliography (i.e., no prefix, typewriter as font for URLs)
+\newcommand{\urlprefix}{}
+\def\UrlFont{\small\tt}
+%\urlstyle{rm} % oder sf, falls obiges nicht funktioniert
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Some useful macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% myfigure: filename width caption
+\newcommand{\myfigure}[3]{%
+  \begin{figure}
+    \centerline{\includegraphics[width=#2]{figures/#1.pdf}}
+  \caption{#3}
+  \label{fig:#1}
+  \end{figure}
+}
+
+% Floating figures = figures with floating text around: filename width caption
+\newcommand{\myfloatfigure}[3]{%
+  \begin{floatingfigure}{#2}
+    \includegraphics[width=#2]{figures/#1.pdf}
+  \caption{#3}
+  \label{fig:#1}
+  \end{floatingfigure}
+}
+
+% two figures side by side: file1 width1 caption1 file2 width2 caption2
+\newcommand{\mydoublefigure}[6]{%
+  \begin{figure}
+  \begin{minipage}[t]{#2}
+    \centerline{\includegraphics[width=\textwidth]{figures/#1.pdf}}
+  \centering
+  \caption{#3}
+  \label{fig:#1}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{#5}
+    \centerline{\includegraphics[width=\textwidth]{figures/#4.pdf}}
+  \centering
+  \caption{#6}
+  \label{fig:#4}
+  \end{minipage}
+  \end{figure}
+}
+
+
+% Better verbatim environments (requires fancyvrb package)
+\DefineVerbatimEnvironment{myverb}{Verbatim}{fontsize=\small,baselinestretch=0.84}
+\DefineVerbatimEnvironment{myverbbox}{Verbatim}{frame=single,fontsize=\small,baselinestretch=0.84}
+
+
+% For figures and tables
+\renewcommand{\topfraction}{0.9} % a page has at most 90% of floats and at least 10% of text (if page contains floats AND text)
+\renewcommand{\bottomfraction}{0.9}
+\renewcommand{\floatpagefraction}{0.7} % a page with floats only is at least 70% full
+
+% Hyphenation (include a special file with hyphenation hints if there are problems)
+% \include{myhyphen}
+
+
+
+\begin{document}
+
+\setlength{\parindent}{2em}
+
+\iffalse
+% Title page
+\begingroup
+  \pagenumbering{roman}
+  \include{title}
+
+\newpage
+
+\thispagestyle{empty}
+
+\rule{0cm}{5cm}
+
+\newpage
+
+\thispagestyle{empty}
+
+\include{declaration}
+
+%%% Include abstract and acknowledgements as necessary
+\include{acknowledgements}
+\include{abstract}
+
+\newpage
+
+\endgroup
+
+%%%%%%%%%%%%%%%%%%%
+% Header & footers
+%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{fancy}
+
+% Headers with page numbers and section/chapter titles
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter\ #1}{}}
+\lhead[\rm\thepage]{\sl\rightmark}
+\chead{}
+\rhead[\sl\leftmark]{\rm\thepage}
+
+% Footers empty
+\lfoot{}
+\cfoot{}
+\rfoot{}
+
+
+\tableofcontents
+
+% Include also list of figures and tables if useful
+%\listoffigures
+%\listoftables
+
+\fi
+
+%%%%%%%%%%%%%%%%%%%%
+%%% Contents %%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+% Put each chapter in a separate file
+
+
+%\input{intro}
+
+%\input{relwork}
+
+%\input{solution}
+
+%\input{impl}
+
+%\input{eval}
+
+%\input{concl}
+
+%%% Use appendix if necessary
+% \begin{appendix}
+% \input{appendix}
+% \end{appendix}
+
+% References
+%\input{biblio}
+\section{Introduction}
+
+\section{Mathematical Knowledge}
+
+\section{Word Embedding}
+Four methods are very popular: PPMI, SVD on PPMI, SGNS and Glove \\
+\\
+PPMI and SVD on PPMI: "count-based" representations\\
+SGNS and Glove: "neural" or "prediction-based" embeddings\\
+\\
+These four methods perform better or as good as other similar but more complex models
+\subsection{Word-Context Pairs}
+$D$ is the set of all possible word-context pairs in curpus\\
+\\
+$\#(w,c)$: times of $(w,c)$ in $D$\\
+$$\#(w)=\sum_{c^\prime\in V_c} \#(w,c^\prime),\ \   \#(c)=\sum_{w^\prime\in V_w} \#(w^\prime,c)$$
+\\
+$w\in V_w$, its vector $\overset{\rightharpoonup}{w}\in\mathbb{R}^d\\ c\in V_c$, its vector $\overset{\rightharpoonup}{c}\in\mathbb{R}^d$\\
+\\
+each vector $\overset{\rightharpoonup}{w}$ is a raw in matrix $W$ : $|V_w|*d$\\ each vector $\overset{\rightharpoonup}{c}$ is a raw in matrix $C$ : $|V_c|*d$\\
+\\
+$W^x$ and $C^x$ means being produced by a specific method $x$ (e.g. $W^{SGNS}$ or $C^{SVD}$)
+\subsection{PMI and PPMI}
+PMI: pointwise mutual information\\
+$$PMI(w,c) = \mathrm{log}\ \frac{\widehat{p}(w,c)}{\widehat{p}(w)\cdot \widehat{p}(c)} = \mathrm{log}\ \frac{\#(w,c)\cdot |D|}{\#(w)\cdot \#(c)}$$
+$M^{PMI}$: The PMI matrix, \ \  $M^{PMI}(w,c)$ = $PMI(w,c)$\\
+\\
+Sometimes, let $PMI(w,c) = 0$ if $\#(w,c)=0$. (originally, $PMI(w,c) = -\infty$) \\
+$M_0^{PMI}$: $$ M_0^{PMI}(w,c) =\left\{
+\begin{aligned}
+& M^{PMI}(w,c), & \#(w,c)>0 \\
+& 0, & \#(w,c)=0 \\
+\end{aligned}
+\right.
+$$
+\\
+PPMI: positive mutual information\\
+$$PPMI(w,c) = \max(PMI(w,c),0)$$
+$M^{PPMI}$: The PPMI matrix, \ \ $M^{PPMI}(w,c)$ = $PPMI(w,c)$\\
+\\
+$M^{PPMI}$ outperforms $M^{PMI}_0$ on semantic similarity tasks
+\subsection{SVD on PPMI} 
+SVD: Singular Value Decomposition \\
+$$M_d = U_d\cdot\Sigma_d\cdot U_d^{\mathrm{T}}$$
+$$W^{SVD} = U_d\cdot\Sigma_d, \ \ C^{SVD} = V_d$$
+respect to $L_2$ loss ??????
+\subsection{SGNS}
+
+\subsection{Comparison}
+\subsection{Details of SGNS}
+
+\section{Word2Vec}
+This section will introduce two important model in word2vec: CBOW model (Continuous Bag-of-Words Model) and Skip-gram model (Continuous Skip-gram Model). 
+
+From the figure, two models both include three layers: \textbf{Input Layer}, \textbf{Projection Layer}, \textbf{Output Layer}. The former is to predict the current word $w_t$ giving its context $w_{t-2}$,$w_{t-1}$,$w_{t+1}$,$w_{t+2}$
+
+With the foregoing preparation, this section describes word2vec officially used in two important models --CBOW model (Coutinuous Bag-of-Words Model) and Skip-gram model (Continuous Skip-gram Model). About two models, author Tomas Mikolov in [] shows the schematic diagram shown in Figures 8 and 9.
+Be seen by the two models contain three layers: \textbf{Input layer}, \textbf{projection layer}  and \textbf{output layer}. The former is known in the current word $w_t$ context $w_{t-2}$, $w_{t-1}$, $w_{t+1}$, $w_{t+2}$ premise predictive current word $w_t$ (see Figure 8); and the latter on the contrary, it is known in the current word $w_t$ premise predict its context $w_{t-2}$, $w_{t-1}$ , $w_{t+1}$, $w_{t+2}$ (see Figure 9).
+For two CBOW and Skip-gram model, word2vec given two frameworks, which are based on Hierarchical Softmax and Negative Sampling to design. This section describes the Hierarchical Softmax CBOW and Skip-gram model.
+In the previous section, we mentioned that the objective function neural network based language model is generally taken as follows \textbf{log-likelihood function}
+$$\mathcal{L}=\sum_{w\in\mathcal{C}}\mathrm{log}\ p(w|Context(w)), $$
+The key is the conditional probability function $p(w|Context(w))$ configuration, text [] in this model is given a construction method function (see (3.6) formula).
+For the objective function Hierarchical Softmax CBOW word2vec model based on optimized also the form (4.1); and for the objective function based on Hierarchical Softmax of Skip-gram model, the optimization of the form
+$$\mathcal{L}=\sum_{w\in\mathcal{C}}\mathrm{log}\ p(Context(w)|w), $$
+Therefore, the discussion process, we should focus on the $p(w|Context(w))$ or $p(Context(w)|w)$ on the structure, realize that this is very important because it allows us to targeted, distractions, and will not fall into some of the tedious details were to go. Next, from a mathematical point of these two models in detail.
+
+\subsection{Skip-gram model with Hierarchical Softmax}
+This section describes word2vec another model -- Skip-gram model, since the derivation and CBOW similar, and therefore will inherit the measure introduced mark.
+\subsubsection{network}
+Figure 12 shows the network structure of Skip-gram model, with network structure CBOW model, it also includes three layers: an input layer, a projection layer and output layer. The following sample $(w,Context(w))$, for example, three layers are described briefly.
+\begin{enumerate}
+\item \textbf{input layer}: the center of the current sample containing only the word $w$ word vector $\mathbf{v}(w)\in\mathbb{R}^m$.
+\item \textbf{projection layer}: This projection is identical to $\mathbf{v}(w)$ projection to $\mathbf{v}(w)$. Therefore, \textbf{this projection layer is actually superfluous} reason here mainly to facilitate retention projection layer and network structure CBOW models do comparison.
+\item \textbf{Output layer}: and CBOW model, the output layer is also a lesson Huffman tree.
+\end{enumerate}
+\subsubsection {gradient calculation} 
+For Skip-gram model, it is known that the current word $w$, need to predict its context $Context(w)$ of the words, the objective function should therefore form (4.2), and the key is the conditional probability function $p(Context(w)|w)$ configuration, in the Skip-gram model which is defined as
+$$p(Context(w)|w)=\prod_{u\in Context(w)}^{p(u|w},$$
+In the above formula $p(u|w)$ in accordance with section describes the Hierarchical Softmax thought, similar to (4.3) written as
+$$p(u|w)=\prod_{j = 2}^{l^u}p(d^u_j|\text{v}(w),\theta^u_{j-1}), $$
+among them
+\begin{equation}
+p(d^u_j|\mathbf{v}(w),\theta^u_{j-1})=[\theta(\mathbf{v}(w)^{\mathrm{T}}\theta^u_{j-1})]^{1-d^u_j}\cdot[1-\theta(\mathbf{v}(w)^{\mathrm{T}}\theta^u_{j-1})]^{1-d^u_j}
+\end{equation}
+The (4.6) followed by generations back, you can get the log-likelihood function (4.2) of the specific expression
+\begin{equation}
+\mathcal{L}=\sum_{w\in\mathcal{C}}\mathrm{log}\prod_{u\in Context(w)}\prod_{j=2}^{l^u}\{[\theta(\mathbf{v}(w)^{\mathrm{T}}\theta^u_{j-1})]^{1-d^u_j}\cdot[1-\theta(\mathbf{v}(w)^{\mathrm{T}}\theta^u_{j-1})]^{\ d^u_j}\} \\
+\ \ \ =\sum_{w\in\mathcal{C}}\sum_{u\in Context(w)}\sum_{j=2}^{l^u}\{(1-d^u_j)\cdot\mathrm{log}[\theta(\mathbf{v}(w)^{\mathrm{T}}\theta^u_{j-1})]+d^u_j\cdot\mathrm{log}[1-\theta(\mathbf {v}(w)^{\mathrm{T}}\theta^u_{j-1})]\}.
+\end{equation}
+Similarly, as in the following gradients of convenience, under the triple summation symbol braces contents of abbreviated as $\mathcal{L}(w,u,j)$, ie
+$$\mathcal{L}(w,u,j)=(1-d^u_j)\cdot\mathrm{log}[\theta(\mathbf{v}(w)^{\mathrm{T}}\theta^u_{j-1})]+d^u_j\cdot\mathrm{log}[1-\theta(\mathbf{v}(w)^{\mathrm{T}}\theta^u_{j-1}]. $$
+So far, it has been deduced logarithmic likelihood function of expressions like (4.7), which is the objective function Skip-gram model. Then also use \textbf{stochastic gradient ascent} method to optimize the key is to give two types of gradients.
+First consider $\mathcal{L}(w,u,j)$ on $\theta^u_{j-1}$ gradient calculation (with the corresponding portion of the model is derived CBOW completely analogous).
+$$\partial\frac{\mathcal{L}(w, u, j)}{\partial\theta^u_{j-1}}=\frac{\partial}{\partial\theta^u_{j-1}}\{(1-d^u_j)\cdot\mathrm{log}[\theta(\mathbf{v}(w)^{\mathrm{T}}\theta^u_{j-1})]+d^u_j\cdot\mathrm{log}[\theta(\mathbf{v}(w)^{\mathrm{T}}\theta^u_{j-1})]\}$$
+
+\subsection{Skip-gram model with Negative Sampling}
+This section will introduce Skip-gram model with Negative Sampling. \textbf{Negative Sampling} (\textbf{NEG}) is proposed by Tomas Mikolov et al. in [], which is the simplified version of \textbf{NCE}(Noise Contrastive Estimation), the purpose is to improve the training and the quality of word vectors. Comparison with Hierarchical Softmax, NEG do not use the (complex) Huffman tree. Instead, it use (relatively simple) \textbf{Random Negative Sampling}, which can improve the performance much.
+\paragraph{Note 5.1} The details of NCE is a little complex, the essence is to use a known probability density function to estimate an unknown probability density function. In short, assume there is an unknown probability density function $Y$ and a known probability density function $X$, if we get the relationship between $X$ and $Y$, we can obtain $X$ as well.The detail of method reference to []. 
+
+The objective function is:
+\begin{equation}
+G=\prod_{w\in\mathcal{C}}\prod_{u\in Context(w)}g(u),
+\end{equation}
+Here, we want to maximize $\prod_{u\in Context(w)}g(u)$ giving $(w, Context(w)))$,  and $g(u)$ is defined as
+$$g(u)=\prod_{z\in{u}\cup NEG(u)}p(z|w),$$
+where $NEG(u)$ represents the negative samples generated by $u$, the conditional probability
+$$p(z|w)=\left\{
+\begin{aligned}
+\sigma(\mathbf{v}(w)^{\mathrm{T}}\theta^z), && L^u(z)=1; \\
+1-\sigma(\mathbf{v}(w)^{\mathrm{T}}\theta^z), && L^u(z)=0; \\
+\end{aligned}
+\right.
+$$
+where $$L^u(z) = \left\{
+\begin{aligned}
+1, && u = z;\\
+0, && u \neq z,\\
+\end{aligned}
+\right.
+$$
+It can also be written as one expression
+\begin{equation}
+p(z|w)=[\sigma(\mathbf{v}(w)^{\mathrm{T}}\theta^z)]^{L^u(z)}\cdot[1-\sigma(\mathbf{v}(w)^{\mathrm{T}}\theta^z)]^{1-L^u(z)}
+\end{equation}
+And then we use the log of $G$, so the final objective function is 
+\begin{align*}
+L & =\mathrm{log}\ G=\mathrm{log} \prod_{w\in\mathcal{C}}\prod_{u\in Context(w)} g(u)=\sum_{w\in\mathcal{C}}\sum_{u\in Context(w)} \mathrm{log}\ g(u) \\
+& = \sum_{w\in\mathcal{C}}\sum_{u\in Context(w)} \mathrm{log} \prod_{z\in\{u\}\cup NEG(u)} p(z|w) \\
+& = \sum_{w\in\mathcal{C}}\sum_{u\in Context(w)}\sum_{z\in\{u\}\cup NEG(u)} \mathrm{log}\ p(z|w) \\
+& = \sum_{w\in\mathcal{C}}\sum_{u\in Context(w)}\sum_{z\in\{u\}\cup NEG(u)} \mathrm{log}\ \{[\sigma(\mathbf{v}(w)^{\mathrm{T}}\theta^z)]^{L^u(z)}\cdot[1-\sigma(\mathbf{v}(w)^{\mathrm{T}}\theta^z)]^{1-L^u(z)}\} \\
+& = \sum_{w\in\mathcal{C}}\sum_{u\in Context(w)}\sum_{z\in\{u\}\cup NEG(u)}\{L^u(z)\cdot \mathrm{log}[\sigma(\mathbf{v}(w)^{\mathrm{T}}\theta^z)]+[1-L^u(z)]\cdot\mathrm{log}[1-\sigma(\mathbf{v}(w)^{\mathrm{T}}\theta^z)]\}.
+\end{align*}
+In order to calculate the gradient more conveniently, we use $L(w,u,z)$ to represent the contents of curly braces as
+$$\mathcal{L}(w,u,z)=L^u(z)\cdot \mathrm{log}[\sigma(\mathbf{v}(w)^{\mathrm{T}}\theta^z)]+[1-L^u(z)]\cdot\mathrm{log}[1-\sigma(\mathbf{v}(w)^{\mathrm{T}}\theta^z)]$$
+And next, let's use \textbf{Stochastic gradient ascent method} to optimize it. The point is to calculate two kinds of gradient. Let's consider the gradient $\theta^z$ firstly.
+\begin{align*}
+& \ \ \ \ \frac{\partial\mathcal{L}(w,u,z)}{\partial\theta^z} \\
+& =  \frac{\partial}{\partial\theta^z} \{ L^u(z)\cdot \mathrm{log}[\sigma(\mathbf{v}(w)^{\mathrm{T}}\theta^z)]+[1-L^u(z)]\cdot\mathrm{log}[1-\sigma(\mathbf{v}(w)^{\mathrm{T}}\theta^z)] \} \\
+& =  L^u(z)[1-\sigma(\mathbf{v}(w)^{\mathrm{T}}\theta^z)]\mathbf{v}(w) - [1-L^u(z)]\sigma(\mathbf{v}(w)^{\mathrm{T}}\theta^z)\mathbf{v}(w) \\
+& = \{L^u(z)[1-\sigma(\mathbf{v}(w)^{\mathrm{T}}\theta^z)]-[1-L^u(z)]\sigma(\mathbf{v}(w)^{\mathrm{T}}\theta^z)\}\mathbf{v}(w) \\
+& = [L^u(z)-\sigma(\mathbf{v}(w)^{\mathrm{T}}\theta^z)] \mathbf{v}(w).
+\end{align*}
+Thus, the updating formula of $\theta^z$ can be written as
+$$\theta^z:=\theta^z+\eta[L^u(z)-\sigma(\mathbf{v}(w)^{\mathrm{T}}\theta^z)]\mathbf{v}(w).$$
+The next, let's consider the gradient of $\mathbf{v}(w)$. Using the \textbf{symmetry} of \textbf{v}(w) and $\theta^z$, we have
+$$\frac{\partial\mathcal{L}(w,u,z)}{\partial\mathbf{v}(w)} = [L^u(z)-\sigma(\mathbf{v}(w)^{\mathrm{T}}\theta^z)]\theta^z,$$
+Thus, the updating formula of $\mathbf{v}(u)$ can be written as 
+$$\mathbf{v}(w):=\mathbf{v}(w)+\eta\sum_{z\in\{u\}\cup NEG\{u\}}\frac{\partial\mathcal{L}(w,u,z)}{\partial\mathbf{v}(w)}$$
+$$=\mathbf{v}(w)+\eta\sum_{z\in\{u\}\cup NEG\{u\}}[L^u(z)-\sigma(\mathbf{v}(w)^{\mathrm{T}}\theta^z)]\theta^z.$$
+
+The following takes the sample $(w,Context(w))$ as the example and gives 
+
+\section{EM Algorithm based on SGHS}
+\section{Sense Assignment based on SGNS}
+\subsection{Introduction}
+\ \ \ \ \ \ Corpus is made up by $M$ sentences, and each sentence is made up by several words. Each word in each sentence has one or multiple senses. In the beginning, in each word of each sentence, senses are assigned \textbf{randomly}. Every sense have both input embedding and output embedding.\\
+
+The training algorithm is an iterating between \textbf{Assign} and \textbf{Learn}. The \textbf{Assign} is to use the \textbf{score function} (sum of log probability) to select the best sense of the center word. And it uses above process to adjust senses of whole sentence and repeats that until sense assignment of the sentence is stable (not changed). The \textbf{Learn} is to use the new sense assignment of each sentence and the gradient of the \textbf{loss function} to update the input embedding and output embedding of each sense (using stochastic gradient decent). 
+\subsection{Definition}
+
+\ \ \ \ \ \ $M$: the total number of sentences \ , \ Dataset: $(S_1,S_2,\ldots,S_M)$\\
+
+$S_i$: the $i$th sentence \ , \ $S_i = (w_{i,1},w_{i,2},\ldots,w_{i,L_i})$
+
+$L_i$: the length of sentence $S_i$\\
+
+$w_{i,j}$: the word in the position $j$ of sentence $S_i$
+
+$h$: lookup table of sense assignment
+
+$h_{i,j}$: the sense index of word $w_{i,j}$, \ $1\leq h_{i,j}\leq N_{w_{i,j}}$
+
+$N_w$: the max number of senses of word $w$, \ $w\in D$
+
+$D$: Vocabulary \\
+
+$V$: lookup table of sense input embedding 
+
+$U$: lookup table of  sense output embedding 
+
+$V_{w,s}$: the input embedding of sense $s$ of word $w$
+
+$U_{w,s}$: the output embedding of sense $s$ of word $w$\\
+
+$K$: the number of negative samples\\
+
+$R(x)$: a random number (integer) from 1 to $x$
+
+$R()$: a random number (real) from 0.0 to 1.0
+\subsection{Objective Function}
+\begin{equation}
+\begin{split}
+G = \frac{1}{M}\sum_{i=1}^M\frac{1}{L_i}\sum_{t=1}^{L_i}\sum\limits_{\mbox{\tiny$\begin{array}{c}-c\leq j \leq c\\ j\neq 0\\ 1\leq j+t\leq L_i\end{array}$}}\Bigg (\mathrm{log}\ p\Big [(w_{i,j+t},h_{i,j+t})|(w_{i,t},h_{i,t})\Big ] \\
++\sum\limits_{k=1}^K\mathbb{E}_{w_k\sim P_n(w)}\mathrm{log}\ \Big \{1-p\Big[[w_k,R(N_{w_k})]|(w_{i,t},h_{i,t})\Big ] \Big \} \Bigg )
+\end{split}
+\end{equation} 
+
+where $p\Big[(w^\prime,s^\prime)|(w,s)\Big] = \sigma({U_{w^\prime,s^\prime}}^{\mathrm{T}}V_{w,s})$
+ and $\sigma(x) = \frac{1}{1+\mathrm{e}^{-x}}$. \\
+ 
+ $p\Big [(w_{i,j+t},h_{i,j+t})|(w_{i,t},h_{i,t})\Big ]$ is the probability of using center word $w_{i,t}$ with sense $h_{i,t}$ to predict one surrounding word $w_{i,j+t}$ with sense $h_{i,t+j}$, which needs to be \textbf{maximized}.
+And $p\Big[[w_k,R(N_{w_k})]|(w_{i,t},h_{i,t})\Big ]$ is the probability of using center word $w_{i,t}$ with sense $h_{i,t}$ to predict one negative sample word $w_k$ with a \textbf{random sense} $R(N_{w_k})$, which needs to be \textbf{minimized}. 
+It is noteworthy that, $h_{i,t}$  ($w_{i,t}$'s sense) and $h_{i,t+j}$ ($w_{i,t+j}$'s sense) are assigned advance and $h_{i,t}$ may be changed in the \textbf{Assign}. But $w_k$'s sense (negative sample) is always assigned randomly. \\
+
+The final objective is to find out optimized parameters $\theta = \{h,U,V\}$ to maximize the Objective Function $G$, where $h$ is updated in the \textbf{Assign} and $\{U,V\}$ is updated in the \textbf{Learn}.\\
+
+When the center word $w_{i,t}$ is giving, we use \textbf{score function} $f_{i,t}$
+$$f_{i,t}(s) = \sum\limits_{\mbox{\tiny$\begin{array}{c}-c\leq j \leq c\\ j\neq 0\\ 1\leq t+j\leq L_i\end{array}$}}\Bigg (\mathrm{log}\ p\Big [(w_{i,t+j},h_{i,t+j})|(w_{i,t},s)\Big ]$$
+$$+\sum\limits_{k=1}^K\mathbb{E}_{w_k\sim P_n(w)}\mathrm{log}\ \Big \{1-p\Big[[w_k,R(N_{w_k})]|(w_{i,t},s)\Big ] \Big \} \Bigg )$$
+to select the "best" sense of each center word in the \textbf{Assign}. To be noted that, for each score function $f_{i,t}$, all negative samples maintain same as long as generated. So different score is only based on different sense (input value).\\
+
+And taking $\big ( (w_{i,t},h_{i,t}),(w_{i,t+j},h_{i,t+j}),\big [(w_1,s_1),\ldots,(w_K,s_K)\big ]\big )$ as a training sample (assuming the negative samples and relative senses are generated already), we use \textbf{loss function} $loss$ for each sample 
+$$loss\bigg ( (w_{i,t},h_{i,t}),(w_{i,t+j},h_{i,t+j}),\big [(w_1,s_1),\ldots,(w_K,s_K)\big ]\bigg )$$
+$$ = -\mathrm{log}\ p\Big [(w_{i,t+j},h_{i,t+j})|(w_{i,t},h_{i,t})\Big ]-\sum\limits_{k=1}^K\mathrm{log}\ \Big \{1-p\Big[[w_k,s_k]|(w_{i,t},h_{i,t})\Big ] \Big \}$$
+to calculate the gradient and update embeddings (including embeddings of negative samples) in the \textbf{Learn}. Here the loss is defined as the negative log probability. \\
+
+The relative gradients calculation is
+$$\Delta_{V_{w_{i,t},h_{i,t}}} = -\frac{\partial loss\bigg ( (w_{i,t},h_{i,t}),(w_{i,t+j},h_{i,t+j}),\big [(w_1,s_1),\ldots,(w_K,s_K)\big ]\bigg )}{\partial V_{w_{i,t},h_{i,t}}} $$
+$$= [1-\mathrm{log}\ \sigma({U_{w_{i,t+j},h_{i,t+j}}}^{\mathrm{T}}V_{w_{i,t},h_{i,t}})]
+U_{w_{i,t+j},h_{i,t+j}}+\sum_{k=1}^K [-\mathrm{log}\ \sigma({U_{w_k,s_k}}^{\mathrm{T}}V_{w_{i,t},h_{i,t}}))]U_{w_k,s_k}$$
+
+$$\Delta_{U_{w_{i,t+j},h_{i,t+j}}} = -\frac{\partial loss\bigg ( (w_{i,t},h_{i,t}),(w_{i,t+j},h_{i,t+j}),\big [(w_1,s_1),\ldots,(w_K,s_K)\big ]\bigg )}{\partial U_{w_{i,t+j},h_{i,t+j}}}$$
+$$=[1-\mathrm{log}\ \sigma({U_{w_{i,t+j},h_{i,t+j}}}^{\mathrm{T}}V_{w_{i,t},h_{i,t}})]
+V_{w_{i,t},h_{i,t}}$$
+
+$$\Delta_{U_{w_k,s_k}} = -\frac{\partial loss\bigg ( (w_{i,t},h_{i,t}),(w_{i,t+j},h_{i,t+j}),\big [(w_1,s_1),\ldots,(w_K,s_K)\big ]\bigg )}{\partial U_{w_k,s_k}}$$
+$$=[-\mathrm{log}\ \sigma({U_{w_k,s_k}}^{\mathrm{T}}V_{w_{i,t},h_{i,t}}))]V_{w_{i,t},h_{i,t}}$$
+
+\subsection{Algorithm Description}
+\paragraph{} \textbf{Initialization}: \\
+
+$h_{i,j} = R(N_{w_{i,j}}),  \ 1\leq i \leq M,  \ 1\leq j\leq L_i$
+
+$V_{w,s} = \Big[\underbrace{\frac{R()-0.5}{d},\ldots,\frac{R()-0.5}{d}}_{d}\Big]^{\mathrm{T}}, \ w\in D, \  1\leq s\leq N_w$
+
+$U_{w,s} = \Big[\underbrace{0,\ldots,0}_{d}\Big]^{\mathrm{T}},  \ w\in D, \  1\leq s\leq N_w$
+\paragraph{} \textbf{Assign}:\\
+
+FOR $i$:= 1 TO $M$
+
+\ \ \ \ DO
+
+\ \ \ \ \ \ \ \ FOR $t$:= 1 TO $L_i$
+
+\ \ \ \ \ \ \ \ \ \ \ \ $h_{i,t} = \max\limits_{1\leq s\leq N_{w_{i,t}}} f_{i,t}(s)$
+
+\ \ \ \ \ \ \ \ END
+
+\ \ \ \ UNTIL no $h_{i,t}$ changed
+
+END
+\paragraph{} \textbf{Learn}:\\
+
+FOR $i$:= 1 TO $M$
+
+\ \ \ \ FOR $t$:= 1 TO $L_i$
+
+\ \ \ \ \ \ \ \ FOR $j$:= $-c$ TO $c$
+
+\ \ \ \ \ \ \ \ \ \ \ \ IF $j\neq 0$ AND $t+j\geq1$ AND $t+j\leq L_i$ THEN
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ generate negative samples $\big [(w_1,s_1),\ldots,(w_K,s_K)\big ]$
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\Delta = -\nabla_\theta loss\bigg ( (w_{i,t},h_{i,t}),(w_{i,t+j},h_{i,t+j}),\big [(w_1,s_1),\ldots,(w_K,s_K)\big ]\bigg )$
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\Delta$ is made up by $ \{\Delta_{V_{w_{i,t},h_{i,t}}}, \Delta_{U_{w_{i,t+j},h_{i,t+j}}}, [\Delta_{U_{w_1,w_1}},\ldots,\Delta_{U_{w_K,w_K}}]\}$
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $V_{w_{i,t},h_{i,t}} = V_{w_{i,t},h_{i,t}} + \alpha \Delta_{V_{w_{i,t},h_{i,t}}}$
+ 
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $U_{w_{i,t+j},h_{i,t+j}} = U_{w_{i,t+j},h_{i,t+j}} + \alpha \Delta_{U_{w_{i,t+j},h_{i,t+j}}}$ 
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FOR $k$:= 1 TO $K$
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $U_{w_k,s_k} = U_{w_k,s_k} + \alpha \Delta_{U_{w_k,s_k}}$ 
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ END
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+ 
+\ \ \ \ \ \ \ \ \ \ \ \ END 
+
+\ \ \ \ \ \ \ \  END
+
+\ \ \ \ END
+
+END
+
+\paragraph{}
+Iterating between \textbf{Assign} and \textbf{Learn} till the convergence of the value of $G$ makes the whole algorithm complete. 
+
+\section{Implementation and Evaluation}
+
+\section{Conclusion}
+
+\end{document}
+
+

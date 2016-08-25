@@ -1,0 +1,128 @@
+\begin{thebibliography}{}
+
+\bibitem[Bengio et~al., 2003]{BengioDucharmeEtAl2003}
+Bengio, Y., Ducharme, R., Vincent, P., and Jauvin, C. (2003).
+\newblock A neural probabilistic language model.
+\newblock {\em journal of machine learning research}, 3(Feb):1137--1155.
+
+\bibitem[Blei et~al., 2003]{BleiNgEtAl2003}
+Blei, D.~M., Ng, A.~Y., and Jordan, M.~I. (2003).
+\newblock Latent dirichlet allocation.
+\newblock {\em Journal of machine Learning research}, 3(Jan):993--1022.
+
+\bibitem[Chen et~al., 2014]{ChenLiuEtAl2014}
+Chen, X., Liu, Z., and Sun, M. (2014).
+\newblock A unified model for word sense representation and disambiguation.
+\newblock In {\em EMNLP}, pages 1025--1035. Citeseer.
+
+\bibitem[Collobert et~al., 2011]{CollobertWestonEtAl2011}
+Collobert, R., Weston, J., Bottou, L., Karlen, M., Kavukcuoglu, K., and Kuksa,
+  P. (2011).
+\newblock Natural language processing (almost) from scratch.
+\newblock {\em Journal of Machine Learning Research}, 12(Aug):2493--2537.
+
+\bibitem[Collobert and Weston, 2008]{CollobertWeston2008}
+Collobert, R. and Weston, J.~W. (2008).
+\newblock A unified architecture for natural language processing: Deep neural
+  networks with multitask learning.
+\newblock In {\em Proceedings of the 25th international conference on Machine
+  learning (ICML)}. ACM.
+
+\bibitem[Deerwester et~al., 1990]{DeerwesterDumaisEtAl1990}
+Deerwester, S., Dumais, S.~T., Furnas, G.~W., Landauer, T.~K., and Harshman, R.
+  (1990).
+\newblock Indexing by latent semantic analysis.
+\newblock {\em Journal of the American society for information science},
+  41(6):391.
+
+\bibitem[Fellbaum, 1998]{Fellbaum1998}
+Fellbaum, C. (1998).
+\newblock {\em WordNet: An Electronic Lexical Database}.
+\newblock MIT Press, Cambridge, MA.
+
+\bibitem[Finkelstein et~al., 2001]{FinkelsteinGabrilovichEtAl2001}
+Finkelstein, L., Gabrilovich, E., Matias, Y., Rivlin, E., Solan, Z., Wolfman,
+  G., and Ruppin, E. (2001).
+\newblock Placing search in context: The concept revisited.
+\newblock In {\em Proceedings of the 10th international conference on World
+  Wide Web}, pages 406--414. ACM.
+
+\bibitem[Harris, 1954]{Harris1954}
+Harris, Z.~S. (1954).
+\newblock Distributional structure. word, 10 (2-3): 146--162. reprinted in
+  fodor, j. a and katz, jj (eds.), readings in the philosophy of language.
+
+\bibitem[Huang et~al., 2012]{HuangSocherEtAl2012}
+Huang, E.~H., Socher, R., Manning, C.~D., and Ng, A.~Y. (2012).
+\newblock Improving word representations via global context and multiple word
+  prototypes.
+\newblock In {\em Proceedings of the 50th Annual Meeting of the Association for
+  Computational Linguistics: Long Papers-Volume 1}, pages 873--882. Association
+  for Computational Linguistics.
+
+\bibitem[Maaten and Hinton, 2008]{MaatenHinton2008}
+Maaten, L. v.~d. and Hinton, G. (2008).
+\newblock Visualizing data using t-sne.
+\newblock {\em Journal of Machine Learning Research}, 9(Nov):2579--2605.
+
+\bibitem[Mikolov et~al., 2013]{MikolovSutskeverEtAl2013}
+Mikolov, T., Sutskever, I., Chen, K., Corrado, G.~S., and Dean, J. (2013).
+\newblock Distributed representations of words and phrases and their
+  compositionality.
+\newblock In {\em Advances in neural information processing systems}, pages
+  3111--3119.
+
+\bibitem[Neelakantan et~al., 2015]{NeelakantanShankarEtAl2015}
+Neelakantan, A., Shankar, J., Passos, A., and McCallum, A. (2015).
+\newblock Efficient non-parametric estimation of multiple embeddings per word
+  in vector space.
+\newblock {\em arXiv preprint arXiv:1504.06654}.
+
+\bibitem[Pennington et~al., 2014]{PenningtonSocherEtAl2014}
+Pennington, J., Socher, R., and Manning, C.~D. (2014).
+\newblock Glove: Global vectors for word representation.
+\newblock In {\em EMNLP}, volume~14, pages 1532--43.
+
+\bibitem[Salton et~al., 1975]{SaltonWongEtAl1975}
+Salton, G., Wong, A., and Yang, C.-S. (1975).
+\newblock A vector space model for automatic indexing.
+\newblock {\em Communications of the ACM}, 18(11):613--620.
+
+\bibitem[Shaoul, 2010]{Shaoul2010}
+Shaoul, C. (2010).
+\newblock The westbury lab wikipedia corpus.
+\newblock {\em Edmonton, AB: University of Alberta}.
+
+\bibitem[Socher et~al., 2013]{SocherPerelyginEtAl2013}
+Socher, R., Perelygin, A., Wu, J.~Y., Chuang, J., Manning, C.~D., Ng, A.~Y.,
+  and Potts, C. (2013).
+\newblock Recursive deep models for semantic compositionality over a sentiment
+  treebank.
+\newblock In {\em Proceedings of the conference on empirical methods in natural
+  language processing (EMNLP)}, volume 1631, page 1642. Citeseer.
+
+\bibitem[Tian et~al., 2014]{TianDaiEtAl2014}
+Tian, F., Dai, H., Bian, J., Gao, B., Zhang, R., Chen, E., and Liu, T.-Y.
+  (2014).
+\newblock A probabilistic model for learning multi-prototype word embeddings.
+\newblock In {\em COLING}, pages 151--160.
+
+\bibitem[Williams and Hinton, 1986]{WilliamsHinton1986}
+Williams, D. and Hinton, G. (1986).
+\newblock Learning representations by back-propagating errors.
+\newblock {\em Nature}, 323:533--536.
+
+\bibitem[Zaharia et~al., 2010]{ZahariaChowdhuryEtAl2010}
+Zaharia, M., Chowdhury, M., Franklin, M.~J., Shenker, S., and Stoica, I.
+  (2010).
+\newblock Spark: cluster computing with working sets.
+\newblock {\em HotCloud}, 10:10--10.
+
+\bibitem[Zhou and Xu, 2015]{ZhouXu2015}
+Zhou, J. and Xu, W. (2015).
+\newblock End-to-end learning of semantic role labeling using recurrent neural
+  networks.
+\newblock In {\em Proceedings of the Annual Meeting of the Association for
+  Computational Linguistics}.
+
+\end{thebibliography}

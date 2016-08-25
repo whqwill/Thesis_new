@@ -1,0 +1,377 @@
+2016-07-03.18-03-32 mdkir thesis
+2016-07-03.18-03-42 rm -rf thesis
+2016-07-03.18-03-46 rm -rf thesis
+2016-07-03.18-03-48 mkdir thesis
+2016-07-03.18-03-53 cp *.tex thesis
+2016-07-03.18-03-58 cp *.jpg thesis
+2016-07-03.18-04-02 cp *.png thesis
+2016-07-04.17-14-27 ls MSSG
+2016-07-04.17-14-29 ls MSSG*
+2016-07-04.17-32-11 eog neural3.png 
+2016-07-04.21-51-10 eog neural3.png 
+2016-07-04.21-51-31 cp relwork.tex background.tex
+2016-07-04.21-58-50 cp solution.tex solution.tex.bk
+2016-07-04.21-59-09 cp intro.tex intro.tex.bk
+2016-07-04.21-59-43 cp thesis.tex thesis.tex.bk
+2016-07-04.22-02-14 ls -lrt
+2016-07-04.22-02-34 less intro.tex
+2016-07-04.22-18-07 vim thesis.tex ls
+2016-07-05.11-25-14 vim thesis.tex ls
+2016-07-05.11-31-18 vim thesis.tex ls
+2016-07-05.11-31-22 gedit thesis.bib
+2016-07-05.11-34-15 vim thesis.tex ls
+2016-07-05.11-34-34 gedit knowledge.tex 
+2016-07-05.13-22-10 rm bengio.jpg
+2016-07-05.13-41-39 rm bengio.png 
+2016-07-05.15-29-09 cp ~/Pictures/cw.png ./
+2016-07-05.16-04-59 cp ~/Pictures/word2vec.png ./
+2016-07-05.16-50-12 cp eval.tex eval.tex.bk
+2016-07-05.16-50-27 cp glossary.tex glossary.tex.bk
+2016-07-05.16-50-35 cp thesis.bib thesis.bib.bk
+2016-07-05.17-03-29 ls *.pdf
+2016-07-05.17-03-37 eog thesis.pdf
+2016-07-05.17-03-42 eog thesis.pdf
+2016-07-05.17-04-17 evince thesis.pdf
+2016-07-05.17-04-42 evince thesis.pdf 
+2016-07-06.07-30-07 /usr/bin/makeglossaries thesis
+2016-07-06.07-52-14 /usr/bin/makeglossaries thesis
+2016-07-06.07-54-28 /usr/bin/makeglossaries thesis
+2016-07-06.09-48-54 /usr/bin/makeglossaries thesis
+2016-07-06.09-48-54 /usr/bin/makeglossaries thesis
+2016-07-06.09-48-55 /usr/bin/makeglossaries thesis
+2016-07-06.12-28-44 rm -rf thesis
+2016-07-06.12-28-47 rm -rf thesis
+2016-07-06.12-28-49 mkdir thesis
+2016-07-06.12-28-55 cp *.jpg thesis
+2016-07-06.12-28-58 cp *.png thesis
+2016-07-06.12-29-01 cp *.tex thesis
+2016-07-06.15-02-30 scp str01.kdlan:/home/IAIS/hwang/SparkWord2Vec/count.txt ./
+2016-07-06.15-14-42 ssh str01.kdlan
+2016-07-06.15-14-47 ls *.py
+2016-07-06.15-14-50 ssh str01.kdlan
+2016-07-06.15-16-43 python
+2016-07-06.15-17-12 ls -lrt
+2016-07-06.15-21-33 cat vec.p
+2016-07-06.15-21-34 cat vec.py 
+2016-07-06.15-26-31 python
+2016-07-06.15-26-34 python
+2016-07-06.15-26-41 eog 2000to100000.png 
+2016-07-06.15-27-22 python
+2016-07-06.15-27-31 eog 2000to100000.png 
+2016-07-06.15-27-56 python
+2016-07-06.15-28-00 eog 2000to100000.png 
+2016-07-06.15-28-45 ssh str01.kdlan
+2016-07-06.15-36-35 eog 100_rest_count.png 
+2016-07-06.15-36-42 less count.txt 
+2016-07-06.15-36-54 cp count.txt count200.txt 
+2016-07-06.15-38-50 ls -lrt
+2016-07-06.15-40-54 ls -lrt
+2016-07-06.15-41-02 cp 10_100count.png 10to100count.png
+2016-07-06.15-41-34 eog allcount.png 
+2016-07-06.15-47-03 ssh str01.kdlan
+2016-07-06.15-47-14 eog 50count.png 
+2016-07-06.15-47-39 eog 50count.png 
+2016-07-06.16-07-50 python
+2016-07-06.16-07-54 ls -lrt
+2016-07-06.16-08-25 eog 900to932.png 
+2016-07-06.16-10-19 python
+2016-07-06.16-10-25 cp 0to50.png 1to51.png
+2016-07-06.16-10-34 cp 50to500.png 51to637.png
+2016-07-06.16-10-53 cp 500to900.png 637to31140.png
+2016-07-06.16-11-09 cp 900to932.png 31140torest.png
+2016-07-06.16-11-29 cp 900to932.png 31140torest.png
+2016-07-06.16-11-49 cp 900to932.png 31140torest.png
+2016-07-06.17-08-09 rm -rf thesis
+2016-07-06.17-08-21 mkdir thesis
+2016-07-06.17-08-26 cp *.tex thesis
+2016-07-06.17-08-30 cp *.png thesis
+2016-07-06.17-08-34 cp *.jpg thesis
+2016-07-06.17-09-13 rm thesis_new.tar.gz 
+2016-07-06.20-27-04 eog way.png 
+2016-07-06.20-27-13 eog vec_word353.png 
+2016-07-06.20-27-22 eog vecSCWS.png 
+2016-07-06.20-27-33 eog MSSG.png 
+2016-07-06.20-27-41 eog vec_time.png 
+2016-07-06.22-37-20 rm -rf thesis
+2016-07-06.22-37-25 mkdir thesis_new
+2016-07-06.22-37-32 cp *.tex thesis_new
+2016-07-06.22-37-36 cp *.jpg thesis_new
+2016-07-06.22-37-41 cp *.png thesis_new
+2016-07-06.22-38-35 /usr/bin/makeglossaries thesis_new/thesis
+2016-07-07.07-22-42 ls -lrt
+2016-07-07.07-22-48 eog allcount.png 
+2016-07-07.07-23-30 eog 50count.png 
+2016-07-07.07-23-36 cat vec.py 
+2016-07-07.07-24-09 less count.txt 
+2016-07-07.07-29-38 vim count.py
+2016-07-07.07-29-41 python count.py 
+2016-07-07.07-29-56 vim count.py
+2016-07-07.07-29-58 python count.py 
+2016-07-07.07-30-03 ls -lrt
+2016-07-07.07-30-21 vim count.py
+2016-07-07.07-30-57 vim count.py
+2016-07-07.07-30-58 ls -lrt
+2016-07-07.07-31-00 python count.py 
+2016-07-07.07-31-12 vim count.py
+2016-07-07.07-31-14 python count.py 
+2016-07-07.07-31-50 vim count.py
+2016-07-07.07-31-52 python count.py 
+2016-07-07.07-31-56 python count.py 
+2016-07-07.07-31-57 ls -lrt
+2016-07-07.07-32-56 vim count.py
+2016-07-07.07-32-59 python count.py 
+2016-07-07.07-33-00 ls -lrt
+2016-07-07.07-34-20 vim count.py
+2016-07-07.07-34-23 python count.py 
+2016-07-07.07-34-38 vim count.py
+2016-07-07.07-34-40 python count.py 
+2016-07-07.07-34-52 eog allcount.png 
+2016-07-07.07-35-05 eog allcount.png 
+2016-07-07.07-46-06 python
+2016-07-07.07-46-10 cat count.py
+2016-07-07.08-50-39 python
+2016-07-07.09-08-08 ls -lrt
+2016-07-07.09-08-45 less count.txt
+2016-07-07.09-08-49 less count.txt
+2016-07-07.09-10-01 eog 50count.png 
+2016-07-07.09-16-53 python
+2016-07-07.09-17-02 less vec.py 
+2016-07-07.09-17-07 vim vec.py 
+2016-07-07.09-17-14 cp vec.py vec2.py
+2016-07-07.09-17-37 vim vec2.py 
+2016-07-07.09-17-41 cat count.py 
+2016-07-07.09-19-53 python
+2016-07-07.09-40-05 python
+2016-07-07.09-46-14 vim sense.py
+2016-07-07.09-46-23 python sense.py 
+2016-07-07.09-46-32 vim sense.py
+2016-07-07.09-46-38 python sense.py 
+2016-07-07.09-46-54 vim sense.py
+2016-07-07.09-47-11 python sense.py 
+2016-07-07.09-47-26 vim sense.py
+2016-07-07.09-47-30 python sense.py 
+2016-07-07.09-47-43 vim sense.py
+2016-07-07.09-47-46 python sense.py 
+2016-07-07.09-48-26 vim sense.py
+2016-07-07.09-48-32 python sense.py 
+2016-07-07.09-48-44 vim sense.py
+2016-07-07.09-48-57 python sense.py 
+2016-07-07.09-49-29 vim sense.py
+2016-07-07.09-49-33 python sense.py 
+2016-07-07.09-49-51 vim sense.py
+2016-07-07.09-49-54 python sense.py 
+2016-07-07.09-50-01 vim sense.py
+2016-07-07.09-50-07 python sense.py 
+2016-07-07.09-50-25 vim sense.py
+2016-07-07.09-50-29 python sense.py 
+2016-07-07.09-50-41 vim sense.py
+2016-07-07.09-50-54 python sense.py 
+2016-07-07.09-52-11 vim sense.py
+2016-07-07.09-52-32 python sense.py 
+2016-07-07.09-53-05 vim sense.py
+2016-07-07.09-53-39 python sense.py 
+2016-07-07.09-54-00 vim sense.py
+2016-07-07.09-54-04 python sense.py 
+2016-07-07.09-56-31 vim sense.py
+2016-07-07.09-56-45 python sense.py 
+2016-07-07.09-56-56 vim sense.py
+2016-07-07.09-57-03 python sense.py 
+2016-07-07.09-57-11 vim sense.py
+2016-07-07.09-57-20 python sense.py 
+2016-07-07.09-57-33 vim sense.py
+2016-07-07.09-57-46 python sense.py 
+2016-07-07.09-57-56 vim sense.py
+2016-07-07.09-58-02 python sense.py 
+2016-07-07.09-58-09 vim sense.py
+2016-07-07.09-58-31 python sense.py 
+2016-07-07.09-58-33 ls -lrt
+2016-07-07.09-58-56 vim sense.py
+2016-07-07.09-58-59 python sense.py 
+2016-07-07.09-59-01 ls -lrt
+2016-07-07.10-00-58 cat vec.py 
+2016-07-07.10-01-27 vim vec.py
+2016-07-07.10-01-46 vim sense.py 
+2016-07-07.10-01-50 python vec.py
+2016-07-07.10-02-19 ls -lrt
+2016-07-07.10-02-32 eog vec_time.png
+2016-07-07.10-02-43 eog vec_time.png
+2016-07-07.10-04-25 vim vec.py
+2016-07-07.10-04-30 python vec.py 
+2016-07-07.10-40-04 eog 50count.png 
+2016-07-07.11-40-02 rm thesis_new
+2016-07-07.11-40-05 rm -rf thesis_new
+2016-07-07.11-40-09 rm -rf thesis_new
+2016-07-07.11-40-11 rm -rf thesis_new
+2016-07-07.11-40-14 mkdir thesis_new
+2016-07-07.11-40-20 cp *.tex thesis_new
+2016-07-07.11-40-26 cp *.tex thesis_new
+2016-07-07.11-40-28 ls *.bib
+2016-07-07.11-40-34 cp *.bib thesis_new
+2016-07-07.11-40-47 cp *.png thesis_new
+2016-07-07.11-40-51 cp *.jpg thesis_new
+2016-07-07.17-04-28 meld
+2016-07-07.17-05-00 sudo apt-get install meld
+2016-07-07.17-05-28 meld thesis.tex thesis1.tex
+2016-07-07.17-17-30 meld thesis_new.bib thesis.bib
+2016-07-07.17-17-32 ls -lrt
+2016-07-07.17-18-19 meld relwork_new.tex relwork.tex 
+2016-07-07.17-24-32 ls -lrt
+2016-07-07.17-24-51 cat .history.hwang 
+2016-07-07.17-25-04 meld thesis.tex thesis_new.tex
+2016-07-07.17-25-15 meld thesis.tex thesis_new.tex
+2016-07-07.17-25-34 cp thesis.tex thesis.tex.bk
+2016-07-07.17-25-51 cp thesis.bib thesis.bib.bk
+2016-07-07.17-26-03 cp relwork.tex relwork.txt.bk
+2016-07-07.17-26-11 cp background.tex background.tex.bk
+2016-07-07.17-26-45 cp glossary.tex glossary.tex.bk
+2016-07-07.17-28-06 meld background.tex background.tex.bk
+2016-07-07.18-35-10 ls -lrt
+2016-07-07.18-35-23 less groups
+2016-07-07.18-37-48 gedit groups
+2016-07-07.18-39-06 ssh str01.kldan
+2016-07-07.18-39-11 ssh str01.kdlan
+2016-07-07.18-39-13 ssh str01.kdlan
+2016-07-07.18-43-13 eog 50count.png 
+2016-07-07.18-43-27 scp str01.kdlan:/home/IAIS/hwang/SparkWord2Vec/simihis.txt ./
+2016-07-07.18-43-32 gedit simihis.txt 
+2016-07-07.18-45-32 eog 50count.png 
+2016-07-07.19-19-34 eog 50count.png 
+2016-07-07.19-22-47 rm thesis_new
+2016-07-07.19-22-53 rm -rf thesis_new
+2016-07-07.19-22-54 rm -rf thesis_new
+2016-07-07.19-23-12 mkdir thesis_new
+2016-07-07.19-23-19 cp *.tex thesis_new
+2016-07-07.19-23-23 cp *.png thesis_new
+2016-07-07.19-23-27 cp *.png thesis_new
+2016-07-07.19-23-34 cp *.jpg thesis_new
+2016-07-07.19-24-29 cp *.bib thesis_new
+2016-07-07.19-50-11 cp eval.tex eval_maxSim.tex
+2016-07-07.19-50-31 ls *.py
+2016-07-07.19-50-36 cat vec2.py 
+2016-07-07.19-50-44 cat vec.py
+2016-07-07.19-50-59 meld vec.py vec2.py 
+2016-07-07.19-51-13 cp vec2.py vecAvgSim.py
+2016-07-07.19-51-28 vim vecAvgSim.py 
+2016-07-07.19-51-37 cat vec.py
+2016-07-07.19-51-47 cp vec.py vecAvgSim.py
+2016-07-07.19-53-20 vim vecAvgSim.py 
+2016-07-07.19-53-25 python vecAvgSim.py 
+2016-07-07.20-12-33 vim vecAvgSim.py 
+2016-07-07.20-12-39 python vecAvgSim.py 
+2016-07-07.21-19-54 eog 50count.png 
+2016-07-07.23-41-09 ls -lrt
+2016-07-07.23-41-22 ls *.py
+2016-07-07.23-41-49 ls -lrt
+2016-07-07.23-41-52 ls *.py
+2016-07-07.23-41-55 ls *.py
+2016-07-07.23-41-58 ls *.py
+2016-07-07.23-42-03 ls *.py
+2016-07-07.23-42-24 cat sense.py
+2016-07-07.23-43-20 vim sense.py 
+2016-07-07.23-43-39 python sense.py
+2016-07-08.00-31-01 python sense.py
+2016-07-08.00-31-05 ssh str01.kldan
+2016-07-08.00-43-49 eog 50count.png 
+2016-07-08.00-58-22 eog 50count.png 
+2016-07-08.00-58-25 ssh str01.kldan
+2016-07-08.01-33-40 less groups
+2016-07-08.02-04-12 eog 50count.png 
+2016-07-08.02-04-22 ls *.py
+2016-07-08.02-04-28 cat count
+2016-07-08.02-04-31 cat count.py 
+2016-07-08.02-05-10 ls *.py
+2016-07-08.02-05-18 cp vecAvgSim.py lrgm.py
+2016-07-08.02-18-03 vim lrgm.py 
+2016-07-08.02-18-07 python lrgm.py 
+2016-07-08.02-18-11 ls -lrt
+2016-07-08.02-18-31 eog gmiter.png 
+2016-07-08.02-19-03 vim lrgm.py 
+2016-07-08.02-19-06 python lrgm.py 
+2016-07-08.02-20-30 eog gmiter.png 
+2016-07-08.02-22-15 vim lrgm.py 
+2016-07-08.02-24-39 python lrgm.py 
+2016-07-08.02-24-51 eog gmiter.png 
+2016-07-08.02-25-53 vim lrgm.py 
+2016-07-08.02-25-56 python lrgm.py 
+2016-07-08.02-26-20 eog gmiter.png 
+2016-07-08.02-27-43 vim lrgm.py 
+2016-07-08.02-27-46 python lrgm.py 
+2016-07-08.02-28-09 eog gmiter.png 
+2016-07-08.02-28-33 vim lrgm.py 
+2016-07-08.02-28-36 python lrgm.py 
+2016-07-08.02-28-41 eog gmiter.png 
+2016-07-08.02-48-34 cat *.py
+2016-07-08.02-48-38 ls *.py
+2016-07-08.02-50-42 vim vecAvgSim.py 
+2016-07-08.02-51-15 vim sense.py 
+2016-07-08.02-54-19 vim count.py 
+2016-07-08.02-54-25 python count.py 
+2016-07-08.02-54-46 vim count.py 
+2016-07-08.02-54-48 python count.py 
+2016-07-08.02-55-17 vim count.py 
+2016-07-08.02-55-19 python count.py 
+2016-07-08.02-55-26 python vecAvgSim.py 
+2016-07-08.02-55-36 vim vecAvgSim.py 
+2016-07-08.02-55-39 python vecAvgSim.py 
+2016-07-08.04-33-19 less groups
+2016-07-08.04-33-39 subl
+2016-07-08.04-34-06 gedit groups
+2016-07-08.04-34-18 ls -lrt
+2016-07-08.04-34-31 ls *.txt
+2016-07-08.04-34-37 less count
+2016-07-08.04-34-41 less count.txt 
+2016-07-08.06-18-30 vim concl.tex 
+2016-07-08.06-33-37 vim vecAvgSim.py 
+2016-07-08.06-33-43 python vecAvgSim.py 
+2016-07-08.07-10-55 rm -rf thesis_new
+2016-07-08.07-11-13 mkdir thesis_new
+2016-07-08.07-11-21 cp *.tex thesis_new
+2016-07-08.07-11-26 cp *.bib thesis_new
+2016-07-08.07-11-58 cp *.jpg thesis_new
+2016-07-08.07-12-03 cp *.png thesis_new
+2016-07-08.07-33-16 vim concl.tex 
+2016-07-08.07-45-54 less title.tex 
+2016-07-08.07-46-26 subl
+2016-07-08.08-55-12 mkdir thesis_final
+2016-07-08.09-15-06 mkdir thesis_final
+2016-07-08.09-15-22 cp *.tex thesis_final/
+2016-07-08.09-15-27 cp *.jpg thesis_final/
+2016-07-08.09-15-34 cp *.png thesis_final/
+2016-07-08.09-15-41 cp *.bib thesis_final/
+2016-07-11.10-57-43 less title.tex 
+2016-07-11.10-57-46 ssh str01.kdlan
+2016-07-11.10-57-47 ssh str01.kdlan
+2016-07-11.10-57-49 ssh str01.kdlan
+2016-07-11.10-57-50 python
+2016-07-11.10-57-51 ssh str01.kdlan
+2016-08-18.13-29-20 evince thesis.pdf 
+2016-08-18.13-29-27 evince thesis.pdf 
+2016-08-18.13-29-29 ls *.tex
+2016-08-18.13-29-32 ls *.txt
+2016-08-18.13-29-52 less count200.txt 
+2016-08-18.13-30-00 ls *.odt
+2016-08-18.13-30-42 less experiment.odt 
+2016-08-18.13-31-50 ls *.txt
+2016-08-18.13-31-59 less output160523.txt
+2016-08-18.13-32-05 less select2.txt
+2016-08-18.13-32-09 less simihis.txt
+2016-08-18.13-41-32 less vec_t3.txt 
+2016-08-18.14-18-03 eog vec_SCWS.png 
+2016-08-18.14-18-14 eog vec_word353.png 
+2016-08-18.14-18-24 eog vecword353.png 
+2016-08-18.14-40-37 less vec_t1.txt 
+2016-08-18.14-40-45 less vec_t2.txt 
+2016-08-18.14-40-54 less thesis.upa 
+2016-08-18.14-59-37 less vec_word353.txt
+2016-08-18.14-59-49 eog way.png 
+2016-08-18.15-00-08 less math2.tex 
+2016-08-18.15-00-22 eog MSSG.png 
+2016-08-18.15-00-29 eog vec_word353.png 
+2016-08-18.15-00-38 eog vec_word353.png 
+2016-08-18.15-58-50 less data 
+2016-08-18.16-23-36 subl 
+2016-08-25.13-11-34 du -sh
+2016-08-25.13-12-10 echo "# Thesis_new" >> README.md
+2016-08-25.13-12-14 git init
+2016-08-25.13-12-17 git *
+2016-08-25.13-12-29 git add *

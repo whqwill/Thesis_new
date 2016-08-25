@@ -1,0 +1,26 @@
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Word Embedding}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Sense Embedding}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.3}{Goal}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.4}{Outline}{chapter.1}% 5
+\BOOKMARK [0][-]{chapter.2}{Background}{}% 6
+\BOOKMARK [1][-]{section.2.1}{Word Embedding}{chapter.2}% 7
+\BOOKMARK [1][-]{section.2.2}{Neural Probabilistic Language Model}{chapter.2}% 8
+\BOOKMARK [1][-]{section.2.3}{The model of Collobert and Weston}{chapter.2}% 9
+\BOOKMARK [1][-]{section.2.4}{Word2Vec}{chapter.2}% 10
+\BOOKMARK [0][-]{chapter.3}{Related Works}{}% 11
+\BOOKMARK [1][-]{section.3.1}{Huang's Model}{chapter.3}% 12
+\BOOKMARK [1][-]{section.3.2}{EM-Algorithm based method}{chapter.3}% 13
+\BOOKMARK [1][-]{section.3.3}{A Method to Determine the Number of Senses}{chapter.3}% 14
+\BOOKMARK [0][-]{chapter.4}{Solution}{}% 15
+\BOOKMARK [1][-]{section.4.1}{Definition}{chapter.4}% 16
+\BOOKMARK [1][-]{section.4.2}{Objective Function}{chapter.4}% 17
+\BOOKMARK [1][-]{section.4.3}{Algorithm Description}{chapter.4}% 18
+\BOOKMARK [0][-]{chapter.5}{Implementation}{}% 19
+\BOOKMARK [1][-]{section.5.1}{Introduction of Spark}{chapter.5}% 20
+\BOOKMARK [1][-]{section.5.2}{Implementation}{chapter.5}% 21
+\BOOKMARK [0][-]{chapter.6}{Evaluation}{}% 22
+\BOOKMARK [1][-]{section.6.1}{Results for different Hyper-Parameters}{chapter.6}% 23
+\BOOKMARK [2][-]{subsection.6.1.1}{Comparison to prior analyses}{section.6.1}% 24
+\BOOKMARK [1][-]{section.6.2}{Case Analysis}{chapter.6}% 25
+\BOOKMARK [0][-]{chapter.7}{Conclusion}{}% 26

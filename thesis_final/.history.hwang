@@ -1,0 +1,4 @@
+2016-07-08.09-23-49 cp *.bib thesis_final/
+2016-07-08.09-23-51 ls -lrt
+2016-07-08.09-24-54 /usr/bin/makeglossaries thesis
+2016-07-08.09-26-00 ls -lrt

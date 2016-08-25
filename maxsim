@@ -1,0 +1,23 @@
+
+/opt/spark/bin/spark-submit  --master local[*] --conf "spark.driver.maxResultSize=110g" --driver-memory 110g --class de.fraunhofer.iais.kd.haiqing.Similarity SparkWord2Vec.jar /home/IAIS/hwang/SparkWord2Vec/resultsData/rmsense/Jul-01-09-28-07-Para:20,5,200,10,5,200,2000_10000,0.1,0.9,true,184 /home/IAIS/hwang/SparkWord2Vec/word353.csv /home/IAIS/hwang/SparkWord2Vec/maxSim3.txt
+
+
+/opt/spark/bin/spark-submit  --master local[*] --conf "spark.driver.maxResultSize=110g" --driver-memory 110g --class de.fraunhofer.iais.kd.haiqing.Similarity SparkWord2Vec.jar /home/IAIS/hwang/SparkWord2Vec/resultsData/rmsense/Jul-01-09-31-11-Para:20,5,200,10,5,150,2000_10000,0.1,0.9,true,184 /home/IAIS/hwang/SparkWord2Vec/word353.csv /home/IAIS/hwang/SparkWord2Vec/maxSim4.txt
+
+
+/opt/spark/bin/spark-submit  --master local[*] --conf "spark.driver.maxResultSize=110g" --driver-memory 110g --class de.fraunhofer.iais.kd.haiqing.Similarity SparkWord2Vec.jar /home/IAIS/hwang/SparkWord2Vec/resultsData/rmsense/Jun-29-12-39-26-Para:20,5,200,10,5,100,2000_10000,0.1,0.9,true,184 /home/IAIS/hwang/SparkWord2Vec/word353.csv /home/IAIS/hwang/SparkWord2Vec/maxSim5.txt
+
+
+/opt/spark/bin/spark-submit  --master local[*] --conf "spark.driver.maxResultSize=110g" --driver-memory 110g --class de.fraunhofer.iais.kd.haiqing.Similarity SparkWord2Vec.jar /home/IAIS/hwang/SparkWord2Vec/resultsData/rmsense/Jun-29-11-52-06-Para:20,5,200,10,5,50,2000_10000,0.1,0.9,true,184 /home/IAIS/hwang/SparkWord2Vec/word353.csv /home/IAIS/hwang/SparkWord2Vec/maxSim6.txt
+
+
+/opt/spark/bin/spark-submit  --master local[*] --conf "spark.driver.maxResultSize=110g" --driver-memory 110g --class de.fraunhofer.iais.kd.haiqing.Similarity SparkWord2Vec.jar /home/IAIS/hwang/SparkWord2Vec/resultsData/rmsense/Jun-23-22-59-54-Para:20,10,20,10,5,50,2000_10000,0.1,0.9,true,184 /home/IAIS/hwang/SparkWord2Vec/word353.csv /home/IAIS/hwang/SparkWord2Vec/maxSim7.txt
+
+
+/opt/spark/bin/spark-submit  --master local[*] --conf "spark.driver.maxResultSize=110g" --driver-memory 110g --class de.fraunhofer.iais.kd.haiqing.Similarity SparkWord2Vec.jar /home/IAIS/hwang/SparkWord2Vec/resultsData/rmsense/Jun-28-11-20-24-Para:20,10,20,10,5,50,2000_100000,0.1,0.9,true,184 /home/IAIS/hwang/SparkWord2Vec/word353.csv /home/IAIS/hwang/SparkWord2Vec/maxSim9.txt
+
+
+/opt/spark/bin/spark-submit  --master local[*] --conf "spark.driver.maxResultSize=110g" --driver-memory 110g --class de.fraunhofer.iais.kd.haiqing.Similarity SparkWord2Vec.jar /home/IAIS/hwang/SparkWord2Vec/resultsData/rmsense/Jun-28-11-20-54-Para:20,10,20,10,5,50,7000_10000,0.1,0.9,true,184 /home/IAIS/hwang/SparkWord2Vec/word353.csv /home/IAIS/hwang/SparkWord2Vec/maxSim10.txt
+
+
+/opt/spark/bin/spark-submit  --master local[*] --conf "spark.driver.maxResultSize=110g" --driver-memory 110g --class de.fraunhofer.iais.kd.haiqing.Similarity SparkWord2Vec.jar /home/IAIS/hwang/SparkWord2Vec/resultsData/rmsense/Jun-28-22-18-56-Para:20,10,20,10,5,50,2000_10000,0.1,0.9,true,184 /home/IAIS/hwang/SparkWord2Vec/word353.csv /home/IAIS/hwang/SparkWord2Vec/maxSim11.txt

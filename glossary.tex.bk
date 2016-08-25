@@ -1,0 +1,46 @@
+
+\newglossaryentry{C}{type=symbols,name={\ensuremath{C}},sort=C,
+	description={The given corpus containing the sentences/documents of words }}
+\newglossaryentry{c}{type=symbols,name={\ensuremath{c}},sort=c,
+	description={The size of a context $Context^{n-1}(w_t)$, i.e. the number of words before and after $w_t$}}
+\newglossaryentry{contextNWt}{type=symbols,name={\ensuremath{Context^{n-1}(w_t)}},sort=contextNWt,
+	description={The context  of a word $w_t$ in the sentence $S_i$ may be defined as the subsequence of the words  
+$Context^{n-1}(w) = (w_{\max(t-n+1,1)},\ldots,w_{t-1})$, and $n-1$ is the number of words before $w_t$}}
+\newglossaryentry{phraseWt}{type=symbols,name={\ensuremath{phrase(w_t)}},sort=phraseWt,
+	description={A phrase with the center word $w_t$ from the sentence $S_i$ may be defined as the subsequence of the words  
+$phrase(w_t)= (w_{t-c},\ldots,w_{t-1},w_t,w_{t+1},\ldots,w_{t+c})$ }}
+\newglossaryentry{contextWt}{type=symbols,name={\ensuremath{Context(w_t)}},sort=contextWt,
+	description={The context  of a word $w_t$ in the sentence $S_i$ may be defined as the subsequence of the words  
+$Contex(w_t)= (w_{i,\max(t-c,0)},\ldots,w_{i,t-1},w_{i,t+1},\ldots,w_{i,\min(t+c,L_i)})$ }}
+\newglossaryentry{d}{type=symbols,name={\ensuremath{d}},sort=d,
+	description={The length of the embedding vector $v(w)\in\Re^d$, e.g. $d=100$}}
+\newglossaryentry{D}{type=symbols,name={\ensuremath{D}},sort=D,
+	description={The vocabulary, i.e. the set of $N$ different words $w$ in the corpus $C$}}
+\newglossaryentry{N}{type=symbols,name={\ensuremath{N}},sort=N,
+	description={The number of different words $w$ in the corpus $C$, usually $N\ge 100.000$ }}
+\newglossaryentry{K}{type=symbols,name={\ensuremath{K}},sort=K,
+	description={The number of negative samples randomly generated for a word $w_t$}}
+\newglossaryentry{M}{type=symbols,name={\ensuremath{M}},sort=M,
+	description={The number of sentences $S_i$ in the corpus, $C=(S_1,\ldots,S_M)$}}
+
+\newglossaryentry{Nw}{type=symbols,name={\ensuremath{N_w}},sort=Nw,
+	description={The number of different senses of a words $w$ in the corpus $C$}}
+\newglossaryentry{Li}{type=symbols,name={\ensuremath{L_i}},sort=Li,
+	description={The number of words in the $i$-th sentence of the corpus $C$, $S_i = (w_{i,1},w_{i,2},\ldots,w_{i,L_i})$}}
+\newglossaryentry{Si}{type=symbols,name={\ensuremath{S_i}},sort=Si,
+	description={The $i$-th sentence of the corpus $C$, $S_i = (w_{i,1},w_{i,2},\ldots,w_{i,L_i})$}}
+\newglossaryentry{RDD}{type=symbols,name={RDD},sort=RDD,
+	description={Resilient Distributed Datatset: Spark’s abstraction of a distributed collection of items}}
+
+\newglossaryentry{Uws}{type=symbols,name={\ensuremath{U_{w,s}}},sort=Uws,
+	description={The $d$-dimensional output embedding $U_{w,s}\in\Re^d$ corresponding to the sense $s\in\{1,\ldots,N_w\}$ of word $w\in D$  }}
+
+\newglossaryentry{vw}{type=symbols,name={\ensuremath{v(w)}},sort=vw,
+	description={The $d$-dimensional embedding $v(w)\in\Re^d$ corresponding to a word $w\in D$ }}
+\newglossaryentry{Vws}{type=symbols,name={\ensuremath{V_{w,s}}},sort=Vws,
+	description={The $d$-dimensional input embedding $V_{w,s}\in\Re^d$ corresponding to the sense $s\in\{1,\ldots,N_w\}$ of word $w\in D$  }}
+\newglossaryentry{wi}{type=symbols,name={\ensuremath{w_t}},sort=wi,
+	description={A word $w_i\in D$ of the vocabulary }}
+\newglossaryentry{wij}{type=symbols,name={\ensuremath{w_{i,j}}},sort=wij,
+	description={The $j$-th word $w_{i,j}\in D$ in sentence $S_i$}}
+
